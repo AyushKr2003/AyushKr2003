@@ -145,6 +145,40 @@ body {
     transition: background-color 0.25s ease, color 0.25s ease;
 }
 
+/* --- THEMED SCROLLBARS (all scrollable elements, follows active theme) --- */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) var(--bg-alt);
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) var(--bg-alt);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-alt);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-hover);
+    border-radius: 6px;
+    border: 2px solid var(--bg-alt);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+::-webkit-scrollbar-corner {
+    background: var(--bg-alt);
+}
+
 ::selection {
     background-color: rgba(var(--primary-rgb), 0.35);
     color: #fff;
