@@ -259,7 +259,6 @@ SEE ALSO
 <sub>Auto-updated daily by <code>.github/workflows/update-stats.yml</code> · last refreshed: 2026-09-17</sub>
 <!-- STATS-END -->
 
-> ℹ️ The contribution snake above is self-generated via the GitHub Action in `.github/workflows/snake.yml` (included in this folder), which commits a static SVG to an `output` branch on your **profile repository** (`AyushKr2003/AyushKr2003`) — copy that one file into `.github/workflows/`, push, and run it once from the Actions tab if it hasn't already. The `gh stats --summary` block above is **also automatic**: `.github/workflows/update-stats.yml` calls the GitHub REST API directly (no third-party rendering service involved, so nothing to go down) and rewrites the block between the `STATS-START`/`STATS-END` markers once a day, committing only if the numbers changed.
 
 ---
 
@@ -268,11 +267,11 @@ SEE ALSO
 ```bash
 $ ./connect.sh --get-channels
 ────────────────────────────────────────────────────────────────────────────────
- 🌐 Portfolio  : https://main--ayushkrsnghportfolio.netlify.app/
- 🐙 GitHub     : https://github.com/AyushKr2003
- 💼 LinkedIn   : https://www.linkedin.com/in/ayush-kumar-singh-8b6b00249/
- 📧 Email      : ayushkrsngh2003@gmail.com
- ⚡ Status     : Open for Software Engineer / Backend / Flutter Developer roles
+  Portfolio  : https://main--ayushkrsnghportfolio.netlify.app/
+  GitHub     : https://github.com/AyushKr2003
+  LinkedIn   : https://www.linkedin.com/in/ayush-kumar-singh-8b6b00249/
+  Email      : ayushkrsngh2003@gmail.com
+  Status     : Open for Software Engineer / Backend / Flutter Developer roles
 ────────────────────────────────────────────────────────────────────────────────
 ```
 
@@ -293,6 +292,6 @@ $ ./connect.sh --get-channels
 
 <br/>
 
-<sub>Crafted with ⚡ and terminal aesthetics by <a href="https://github.com/AyushKr2003">@AyushKr2003</a></sub>
+<sub>Crafted with 󰚩 and terminal aesthetics by <a href="https://github.com/AyushKr2003">@AyushKr2003</a></sub>
 
 </div>
