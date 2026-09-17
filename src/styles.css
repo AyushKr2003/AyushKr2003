@@ -908,6 +908,26 @@ code, pre, kbd, .font-mono, .term-btn, .project-name, .term-chip {
     font-family: var(--font-mono);
     font-size: 0.86rem;
     line-height: 1.55;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) var(--bg-alt);
+}
+
+.term-win-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.term-win-body::-webkit-scrollbar-track {
+    background: var(--bg-alt);
+}
+
+.term-win-body::-webkit-scrollbar-thumb {
+    background: var(--border-hover);
+    border-radius: 4px;
+    border: 1px solid var(--bg-alt);
+}
+
+.term-win-body::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
 }
 
 .term-welcome-msg {
