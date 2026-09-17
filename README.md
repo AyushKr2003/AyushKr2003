@@ -41,24 +41,6 @@ Building production REST APIs (Laravel, FastAPI), cross-platform Flutter apps, a
 
 ---
 
-## Featured Projects
-
-**[niri-caelestia-shell](https://github.com/AyushKr2003/niri-caelestia-shell)** — `QML` `Wayland` · 172 stars · 21 forks
-A community desktop-shell fork ported from Hyprland to the niri window manager. Rather than build a shell from scratch, I ported an existing one to a compositor with a different IPC model — slower to get right, but it meant a working shell people could use in weeks, and it's now one of the more widely adopted niri shells.
-
-**[SageSearch](https://github.com/AyushKr2003/sage_search)** — `Flutter` `FastAPI` `Gemini API` `Tavily API` `WebSocket`
-AI-powered search platform that synthesizes answers from multiple live web sources. Combines two different providers (Gemini for generation, Tavily for retrieval) instead of one — more integration work, but noticeably better answer coverage than either alone.
-
-**[Nex Vote](https://github.com/AyushKr2003/NexVote)** — `Flutter` `Node.js` `Solidity` `Ethereum` *(team project)*
-Blockchain-secured voting platform. Built the Flutter client and wired it to an Ethereum smart contract for tamper-resistant, real-time vote counting.
-
-**[JourneyLog](https://github.com/AyushKr2003/JourneyLog)** — `PHP` `Laravel` `SQLite`
-Full-stack travel blog platform with role-based auth (Admin/User), category filtering, and Laravel-backed media storage for post publishing.
-
-<sub>More repositories: [github.com/AyushKr2003](https://github.com/AyushKr2003?tab=repositories)</sub>
-
----
-
 ## Tech Stack
 
 <p>
@@ -82,7 +64,7 @@ Building and maintaining RESTful APIs in Laravel/PHP/MySQL — schema design, au
 **Flutter Developer Intern** · Medoc · *Jul 2024 – Jan 2025*
 Shipped cross-platform Flutter features (MVVM/FDD) integrated with REST APIs, on a remote/distributed team; wrote unit tests as part of the workflow.
 
-**B.E., Computer Science Engineering** · Chandigarh University · *2022 – 2026* · CGPA 7.9
+**B.E., Computer Science Engineering** · Chandigarh University · *2022 – 2026* 
 
 ---
 
