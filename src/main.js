@@ -349,8 +349,7 @@ Available commands:
   🗳️ <a href="https://github.com/AyushKr2003/NexVote" target="_blank" class="term-cyan">Nex Vote</a>               Blockchain voting platform (Flutter, Node.js, Solidity)
   🎵 <a href="https://github.com/AyushKr2003/Musixir" target="_blank" class="term-cyan">Musixir</a>                Music streaming app (Flutter, FastAPI)
   ✈️ <a href="https://github.com/AyushKr2003/JourneyLog" target="_blank" class="term-yellow">JourneyLog</a>             Tourism & travel blog platform (PHP, Laravel, SQLite)
-  ⚙️ <a href="https://github.com/AyushKr2003/shell-settings" target="_blank" class="term-yellow">shell-settings</a>         Shell configuration & plugin utilities — 6★
-  🐧 <a href="https://github.com/AyushKr2003/omarchy-dotfiles" target="_blank" class="term-yellow">omarchy-dotfiles</a>       Personal dotfiles & TUI tools for Omarchy setup`
+  ⚙️ <a href="https://github.com/AyushKr2003/shell-settings" target="_blank" class="term-yellow">shell-settings</a>         Shell configuration & plugin utilities — 6★`
         },
 
         experience: {

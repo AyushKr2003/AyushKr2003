@@ -62,7 +62,7 @@ def fetch_stats(username, token):
 def render_block(stats):
     top_note = ""
     if stats["top_repo_name"] and stats["top_repo_stars"] > 0:
-        top_note = f"★ {stats['top_repo_name']} leads ({stats['top_repo_stars']})"
+        top_note = f"{stats['top_repo_name']} leads ({stats['top_repo_stars']})"
 
     # Fixed inner content width; every line is built to exactly this width
     # so the box borders always line up regardless of how long the numbers

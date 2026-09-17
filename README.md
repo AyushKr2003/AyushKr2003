@@ -3,245 +3,98 @@
 <!-- Terminal Window Mockup Frame -->
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
   <tr>
-    <td align="left" style="background-color: #161b22; border-top-left-radius: 12px; border-top-right-radius: 12px; padding: 12px 18px; border: 1px solid #30363d;">
+    <td align="left" style="background-color: #161b22; border-radius: 12px; padding: 12px 18px; border: 1px solid #30363d;">
       <span style="color: #ff5f56; font-size: 14px;">●</span>
       <span style="color: #ffbd2e; font-size: 14px; margin-left: 6px;">●</span>
       <span style="color: #27c93f; font-size: 14px; margin-left: 6px;">●</span>
       &nbsp;&nbsp;&nbsp;
-      <kbd><b>ayush@omarchy:~ (bash)</b></kbd>
-      &nbsp;&nbsp;
-      <span style="color: #58a6ff; font-family: monospace; font-size: 11px;">[  1: profile.sh ]</span>
-      <span style="color: #8b949e; font-family: monospace; font-size: 11px;">[ 🧱 2: backend.py ]</span>
-      <span style="color: #8b949e; font-family: monospace; font-size: 11px;">[ 📱 3: mobile.dart ]</span>
-      <span style="color: #8b949e; font-family: monospace; font-size: 11px;">[ ⚡ 4: btop ]</span>
+      <kbd><b>ayush@omarchy:~$</b></kbd>
+      <span style="font-family: monospace; color: #8b949e;"> whoami</span>
     </td>
   </tr>
 </table>
 
-<!-- Live Terminal Typing SVG Header -->
-<a href="https://main--ayushkrsnghportfolio.netlify.app/">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=21&duration=2800&pause=1100&color=27C93F&center=true&vCenter=true&width=780&lines=%3E+whoami%3A+Ayush+Kumar+Singh+%28AyushKr2003%29;%3E+Software+Engineer+%7C+Backend+%26+Flutter+Developer;%3E+Building+REST+APIs%2C+Flutter+apps+%26+AI-integrated+platforms;%3E+Open-source+contributor+%7C+49%2B+repos+%7C+180%2B+stars;%3E+Laravel+%7C+FastAPI+%7C+Flutter+%7C+Python+%7C+Linux+%7C+Omarchy;%3E+Welcome+to+my+digital+terminal." alt="Terminal Typing Header" />
-</a>
+<br/>
 
-<!-- Quick Link Badges -->
-<p align="center">
-  <a href="https://main--ayushkrsnghportfolio.netlify.app/"><img src="https://img.shields.io/badge/🌐_Portfolio-Live_Site-8b5cf6?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Live Portfolio" /></a>
-  <a href="https://github.com/AyushKr2003?tab=repositories"><img src="https://img.shields.io/badge/📦_Repositories-Public_Hub-10b981?style=for-the-badge&logo=github&logoColor=white" alt="Repositories" /></a>
-  <a href="https://www.linkedin.com/in/ayush-kumar-singh-8b6b00249/"><img src="https://img.shields.io/badge/💼_LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
-  <a href="https://omarchy.org/"><img src="https://img.shields.io/badge/🐧_System-Omarchy_Linux-38bdf8?style=for-the-badge&logo=archlinux&logoColor=white" alt="Omarchy Linux" /></a>
-  <a href="https://github.com/AyushKr2003"><img src="https://img.shields.io/github/followers/AyushKr2003?label=Followers&style=for-the-badge&color=f43f5e&logo=github" alt="GitHub Followers" /></a>
+# Ayush Kumar Singh
+
+**Software Engineer · Backend & Flutter Developer**
+
+Building production REST APIs (Laravel, FastAPI), cross-platform Flutter apps, and AI-integrated platforms. Open-source maintainer of a desktop-shell project with 172 stars. Based in Patna, India.
+
+<p>
+  <a href="https://main--ayushkrsnghportfolio.netlify.app/"><img src="https://img.shields.io/badge/Portfolio-8b5cf6?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Portfolio" /></a>
+  <a href="https://www.linkedin.com/in/ayush-kumar-singh-8b6b00249/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+  <a href="mailto:ayushkrsngh2003@gmail.com"><img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
+  <a href="https://github.com/AyushKr2003?tab=repositories"><img src="https://img.shields.io/badge/Repositories-10b981?style=for-the-badge&logo=github&logoColor=white" alt="Repositories" /></a>
 </p>
 
 </div>
 
 ---
 
-### 💻 `fastfetch --config profile`
+## Currently
 
-```bash
-    _____  ____  _______ __  __      ┌───────────────────── Telemetry ─────────────────────┐
-   /   \ \/ / / / / ___// / / /      │  User        : Ayush Kumar Singh (AyushKr2003)      │
-  / /| |\  / / / /\__ \/ /_/ /       │  Role        : Backend Developer @ Fillip Tech      │
- / ___ |/ / /_/ /___/ / __  /        │  Environment : Omarchy Linux • Hyprland (Wayland)   │
-/_/  |_/_/\____//____/_/ /_/         │  Backend     : Laravel • FastAPI • PostgreSQL/MySQL │
-                                     │  Mobile      : Flutter (MVVM / FDD)                 │
-                                     │  Shell       : Bash • Zsh                           │
-                                     │  Education   : B.E. CSE, Chandigarh University      │
-                                     │  Portfolio   : ayushkrsnghportfolio.netlify.app     │
-                                     │  Status      : Open for SWE / Backend / Flutter     │
-                                     └─────────────────────────────────────────────────────┘
-```
+- Building and maintaining production REST APIs at **Fillip Technology** (Laravel · PHP · MySQL)
+- Maintaining **[niri-caelestia-shell](https://github.com/AyushKr2003/niri-caelestia-shell)**, a community desktop shell for the niri window manager (172 stars, 21 forks)
+- Open to **Software Engineer / Backend Developer / Flutter Developer** roles
 
 ---
 
-### 📊 `btop --minimal --skills`
+## Featured Projects
 
-```
-┌─ System Capability & Skill Allocation [Proficiency Core] ──────────────────────────────────────────┐
-│                                                                                                    │
-│  📱 Flutter & Mobile Dev  [████████████████████████████░░░░] 88%  • Cross-platform apps, MVVM/FDD  │
-│  🧱 Backend (Laravel/API) [████████████████████████████░░░░] 85%  • REST APIs, Auth, PostgreSQL    │
-│  🐧 Linux & Shell         [████████████████████████████████] 90%  • Omarchy, Hyprland, Bash/Zsh    │
-│  🗄️  SQL & Databases       [██████████████████████████░░░░░░] 80%  • PostgreSQL, MySQL, SQLite     │
-│  🐍 Python & Automation   [████████████████████████░░░░░░░░] 75%  • FastAPI, Scripting, Tooling    │
-│  ⛓️  Blockchain / Solidity [██████████████████░░░░░░░░░░░░░░] 55%  • Ethereum Smart Contracts      │
-│                                                                                                    │
-└────────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+**[niri-caelestia-shell](https://github.com/AyushKr2003/niri-caelestia-shell)** — `QML` `Wayland` · 172 stars · 21 forks
+A community desktop-shell fork ported from Hyprland to the niri window manager. Rather than build a shell from scratch, I ported an existing one to a compositor with a different IPC model — slower to get right, but it meant a working shell people could use in weeks, and it's now one of the more widely adopted niri shells.
 
----
+**[SageSearch](https://github.com/AyushKr2003/sage_search)** — `Flutter` `FastAPI` `Gemini API` `Tavily API` `WebSocket`
+AI-powered search platform that synthesizes answers from multiple live web sources. Combines two different providers (Gemini for generation, Tavily for retrieval) instead of one — more integration work, but noticeably better answer coverage than either alone.
 
-### 🧩 `ls ~/projects/flutter-and-backend/` (Featured Full-Stack & Mobile Work)
+**[Nex Vote](https://github.com/AyushKr2003/NexVote)** — `Flutter` `Node.js` `Solidity` `Ethereum` *(team project)*
+Blockchain-secured voting platform. Built the Flutter client and wired it to an Ethereum smart contract for tamper-resistant, real-time vote counting.
 
-> **Production REST APIs, AI-integrated platforms, and cross-platform Flutter apps.**
+**[JourneyLog](https://github.com/AyushKr2003/JourneyLog)** — `PHP` `Laravel` `SQLite`
+Full-stack travel blog platform with role-based auth (Admin/User), category filtering, and Laravel-backed media storage for post publishing.
 
-<table>
-  <tr>
-    <td width="50%" valign="top">
-      <h4><a href="https://github.com/AyushKr2003/sage_search">🔍 SageSearch</a></h4>
-      <p>AI-powered web search & information synthesis platform. Integrates Google Gemini and Tavily APIs for AI-generated responses and intelligent ranking, with a responsive Flutter frontend over a FastAPI + WebSocket backend.</p>
-      <p>
-        <img src="https://img.shields.io/badge/Flutter-02569B?style=flat-square&logo=flutter&logoColor=white" alt="Flutter" />
-        <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI" />
-        <img src="https://img.shields.io/badge/Gemini_API-8b5cf6?style=flat-square" alt="Gemini" />
-      </p>
-    </td>
-    <td width="50%" valign="top">
-      <h4><a href="https://github.com/AyushKr2003/NexVote">🗳️ Nex Vote</a></h4>
-      <p>Secure blockchain voting platform (team project). Built the Flutter frontend integrated with backend services and an Ethereum smart contract, with real-time blockchain-secured vote counting.</p>
-      <p>
-        <img src="https://img.shields.io/badge/Flutter-02569B?style=flat-square&logo=flutter&logoColor=white" alt="Flutter" />
-        <img src="https://img.shields.io/badge/Solidity-363636?style=flat-square&logo=solidity&logoColor=white" alt="Solidity" />
-        <img src="https://img.shields.io/badge/Ethereum-3C3C3D?style=flat-square&logo=ethereum&logoColor=white" alt="Ethereum" />
-      </p>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <h4><a href="https://github.com/AyushKr2003/Musixir">🎵 Musixir</a></h4>
-      <p>Feature-rich music streaming platform with background playback, backed by a custom FastAPI media service.</p>
-      <p>
-        <img src="https://img.shields.io/badge/Flutter-02569B?style=flat-square&logo=flutter&logoColor=white" alt="Flutter" />
-        <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI" />
-      </p>
-    </td>
-    <td width="50%" valign="top">
-      <h4><a href="https://github.com/AyushKr2003/JourneyLog">✈️ JourneyLog</a></h4>
-      <p>Tourism & travel blog platform with role-based auth for Admin/User, category filtering, blog CRUD workflows, and Laravel file storage for media uploads.</p>
-      <p>
-        <img src="https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white" alt="PHP" />
-        <img src="https://img.shields.io/badge/Laravel-FF2D20?style=flat-square&logo=laravel&logoColor=white" alt="Laravel" />
-        <img src="https://img.shields.io/badge/SQLite-07405E?style=flat-square&logo=sqlite&logoColor=white" alt="SQLite" />
-      </p>
-    </td>
-  </tr>
-</table>
+<sub>More repositories: [github.com/AyushKr2003](https://github.com/AyushKr2003?tab=repositories)</sub>
 
 ---
 
-### 🐧 `ls ~/projects/open-source/` (Linux Desktop & Open-Source Tooling)
+## Tech Stack
 
-> **49+ public repositories, 180+ community GitHub stars — built for daily-driver Omarchy Linux.**
+<p>
+  <img src="https://skillicons.dev/icons?i=python,php,dart,flutter,laravel,mysql,postgres,sqlite,linux,git,github,bash&theme=dark" alt="Tech Stack Icons" />
+</p>
 
-| Repository | Description | Stats | Quick Link |
-| :--- | :--- | :--- | :---: |
-| [**`niri-caelestia-shell`**](https://github.com/AyushKr2003/niri-caelestia-shell) | Community desktop-shell fork ported to the niri window manager | `★ 172` `🍴 21` | [Inspect →](https://github.com/AyushKr2003/niri-caelestia-shell) |
-| [**`omarchy-overview`**](https://github.com/AyushKr2003/omarchy-overview) | Workspace overview widget with live window previews for Omarchy | `★ 8` | [Inspect →](https://github.com/AyushKr2003/omarchy-overview) |
-| [**`shell-settings`**](https://github.com/AyushKr2003/shell-settings) | Shell configuration & plugin utilities for a faster terminal setup | `★ 6` | [Inspect →](https://github.com/AyushKr2003/shell-settings) |
-| [**`omarchy-dotfiles`**](https://github.com/AyushKr2003/omarchy-dotfiles) | Personal dotfiles, shell plugins & TUI tools for Omarchy — including this profile | `dotfiles` | [Inspect →](https://github.com/AyushKr2003/omarchy-dotfiles) |
-
----
-
-### 📟 `cat experience.log && cat education.log`
-
-```
-[experience.log]
-Aug 2026 – Present   Backend Developer      @ Fillip Technology
-                      Laravel/PHP/MySQL REST APIs, schema design, auth & core business logic
-
-Jul 2024 – Jan 2025   Flutter Developer Intern @ Medoc
-                      Cross-platform apps (FDD/MVVM), REST integration, unit testing
-
-[education.log]
-2022 – 2026           B.E. Computer Science Engineering, Chandigarh University | CGPA 7.9
-2022                   St. Joseph's High School, Patna — 12th: 82%
-2020                   St. Joseph's High School, Patna — 10th: 92%
-```
+| | |
+|---|---|
+| **Languages** | Python, PHP, Dart, C/C++, Java, SQL, Bash |
+| **Backend** | Laravel, FastAPI, REST API design, PostgreSQL, MySQL, SQLite, WebSockets |
+| **Mobile** | Flutter (MVVM, Feature-Driven Development) |
+| **Tooling** | Git/GitHub, Linux (Omarchy/Hyprland), Postman, Solidity/Ethereum |
 
 ---
 
-### 🛠️ `cat /etc/environment/stack.json`
+## Experience
+
+**Backend Developer** · Fillip Technology · *Aug 2026 – Present*
+Building and maintaining RESTful APIs in Laravel/PHP/MySQL — schema design, auth, and core business logic for production applications.
+
+**Flutter Developer Intern** · Medoc · *Jul 2024 – Jan 2025*
+Shipped cross-platform Flutter features (MVVM/FDD) integrated with REST APIs, on a remote/distributed team; wrote unit tests as part of the workflow.
+
+**B.E., Computer Science Engineering** · Chandigarh University · *2022 – 2026* · CGPA 7.9
+
+---
+
+## GitHub Activity
 
 <div align="center">
 
-<!-- Modern Skill Icons -->
-<a href="https://skillicons.dev">
-  <img src="https://skillicons.dev/icons?i=python,php,dart,flutter,laravel,mysql,postgres,sqlite,linux,git,github,html,css,js,java,cpp,c,bash&theme=dark" alt="Tech Stack Icons" />
-</a>
-
-</div>
-
-```json
-{
-  "core_languages": [
-    "Python", "PHP", "Dart", "C / C++", "Java", "SQL", "Bash / Shell"
-  ],
-  "backend_and_data": [
-    "Laravel", "FastAPI", "REST API Design", "PostgreSQL", "MySQL", "SQLite", "WebSockets"
-  ],
-  "mobile": [
-    "Flutter", "MVVM", "Feature-Driven Development (FDD)"
-  ],
-  "daily_drivers": [
-    "Omarchy Linux (Arch-based)", "Hyprland", "Git & GitHub", "Postman", "Solidity / Ethereum"
-  ]
-}
-```
-
----
-
-<details>
-<summary><b>📖 <code>man ayush(1)</code> — Developer Specification & Manual</b></summary>
-
-```man
-AYUSH(1)                         User Manuals                         AYUSH(1)
-
-NAME
-     Ayush Kumar Singh (AyushKr2003) - Software Engineer, Backend & Flutter Developer.
-
-SYNOPSIS
-     ayush [--portfolio] [--backend] [--mobile] [--opensource] [--collaborate]
-
-DESCRIPTION
-     Ayush Kumar Singh is a software engineer with hands-on experience across backend
-     (Laravel, FastAPI), mobile (Flutter), and full-stack development. Ships production
-     REST APIs, cross-platform mobile apps, and AI-integrated web platforms — independently
-     and in remote/distributed teams. Active open-source contributor with 49+ public
-     repositories and 180+ community GitHub stars.
-
-OPTIONS
-     --portfolio
-          Launches the interactive terminal-style portfolio at
-          https://main--ayushkrsnghportfolio.netlify.app/
-
-     --backend
-          Builds RESTful APIs with Laravel/PHP/MySQL and FastAPI/Python,
-          designing relational schemas, auth, and core business logic.
-
-     --mobile
-          Ships cross-platform Flutter apps using MVVM and Feature-Driven
-          Development (FDD), integrated with REST/WebSocket backends.
-
-     --opensource
-          Maintains niri-caelestia-shell (172★, 21 forks) and other Linux
-          desktop tooling for the Omarchy / Hyprland ecosystem.
-
-     --collaborate
-          Signals readiness for Software Engineer / Backend Developer /
-          Flutter Developer / Full-Stack Developer roles.
-
-SEE ALSO
-     laravel(1), fastapi(1), flutter(1), git(1)
-```
-
-</details>
-
----
-
-### 📈 `curl -s https://api.github.com/users/AyushKr2003/contributions`
-
-<div align="center">
-
-<!-- Contribution Snake Animation -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/AyushKr2003/AyushKr2003/output/github-contribution-grid-snake-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/AyushKr2003/AyushKr2003/output/github-contribution-grid-snake.svg">
   <img alt="GitHub Contribution Grid Snake" src="https://raw.githubusercontent.com/AyushKr2003/AyushKr2003/output/github-contribution-grid-snake.svg" width="100%" />
 </picture>
-
-<br/>
-
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=AyushKr2003&theme=tokyonight&hide_border=true&background=0d1117&ring=00ff9f&fire=00ff9f&currStreakLabel=00ff9f" alt="GitHub Streak" height="145" />
 
 </div>
 
@@ -250,7 +103,7 @@ SEE ALSO
 ┌─ gh stats --summary ───────────────────────────────────────────┐
 │                                                                │
 │   Public Repos   : 50                                          │
-│   Total Stars    : 187   ★ niri-caelestia-shell leads (172)    │
+│   Total Stars    : 187   niri-caelestia-shell leads (172)      │
 │   Total Forks    : 22                                          │
 │   Followers      : 11                                          │
 │                                                                │
@@ -259,39 +112,14 @@ SEE ALSO
 <sub>Auto-updated daily by <code>.github/workflows/update-stats.yml</code> · last refreshed: 2026-09-17</sub>
 <!-- STATS-END -->
 
+<sub>Pulled directly from the GitHub REST API by [`update_stats.py`](.github/scripts/update_stats.py) — no third-party rendering service involved.</sub>
 
 ---
 
-### 📡 `./connect.sh --verbose`
+## Get in Touch
 
-```bash
-$ ./connect.sh --get-channels
-────────────────────────────────────────────────────────────────────────────────
-  Portfolio  : https://main--ayushkrsnghportfolio.netlify.app/
-  GitHub     : https://github.com/AyushKr2003
-  LinkedIn   : https://www.linkedin.com/in/ayush-kumar-singh-8b6b00249/
-  Email      : ayushkrsngh2003@gmail.com
-  Status     : Open for Software Engineer / Backend / Flutter Developer roles
-────────────────────────────────────────────────────────────────────────────────
-```
+**Email:** [ayushkrsngh2003@gmail.com](mailto:ayushkrsngh2003@gmail.com)
+**LinkedIn:** [ayush-kumar-singh](https://www.linkedin.com/in/ayush-kumar-singh-8b6b00249/)
+**Portfolio:** [ayushkrsnghportfolio.netlify.app](https://main--ayushkrsnghportfolio.netlify.app/)
 
-<div align="center">
-
-<!-- Vim Statusline Footer -->
-<table border="0" cellpadding="0" cellspacing="0" width="100%">
-  <tr>
-    <td align="left" style="background-color: #161b22; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; padding: 10px 18px; border: 1px solid #30363d; font-family: monospace; font-size: 12px; color: #8b949e;">
-      <span style="background-color: #27c93f; color: #000; padding: 2px 6px; font-weight: bold; border-radius: 3px;">NORMAL</span> &nbsp;
-      <span style="color: #c9d1d9;">~/workspace/AyushKr2003.md</span> &nbsp;&bull;&nbsp;
-      <span>utf-8[unix]</span> &nbsp;&bull;&nbsp;
-      <span>100%</span> &nbsp;&bull;&nbsp;
-      <span style="color: #00ff9f; font-weight: bold;">git:main </span>
-    </td>
-  </tr>
-</table>
-
-<br/>
-
-<sub>Crafted with 󰚩 and terminal aesthetics by <a href="https://github.com/AyushKr2003">@AyushKr2003</a></sub>
-
-</div>
+<sub>© 2026 Ayush Kumar Singh</sub>
