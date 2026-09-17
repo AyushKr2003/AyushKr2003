@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="obsidian">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ayush Kumar Singh · Backend & Flutter Developer</title>
+    <meta name="description" content="Portfolio of Ayush Kumar Singh - Software Engineer building backend APIs (Laravel, FastAPI), Flutter apps, and open-source Linux tooling." />
+    <meta name="keywords" content="Ayush Kumar Singh, Backend Developer, Flutter Developer, Laravel, FastAPI, Full Stack, Omarchy, Linux, Open Source" />
+    <meta name="author" content="Ayush Kumar Singh" />
+    <meta property="og:title" content="Ayush Kumar Singh · Backend & Flutter Developer" />
+    <meta property="og:description" content="Building production REST APIs, cross-platform mobile apps, and AI-integrated web platforms." />
+    <meta property="og:url" content="https://main--ayushkrsnghportfolio.netlify.app/" />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2310b981'/><text x='16' y='21' font-family='monospace' font-weight='bold' font-size='13' fill='%2307090e' text-anchor='middle'>&gt;_</text></svg>" />
+
+    <!-- Google Fonts: JetBrains Mono & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="src/styles.css" />
+</head>
+<body>
+
+    <!-- Subtle Ambient Terminal Grid Background -->
+    <div class="terminal-bg-grid" aria-hidden="true"></div>
+    <div class="ambient-glows" aria-hidden="true">
+        <div class="ambient-glow glow-1"></div>
+        <div class="ambient-glow glow-2"></div>
+    </div>
+
+    <!-- Fullscreen Matrix Canvas (Toggleable via CLI: 'matrix' or palette) -->
+    <canvas id="matrix-canvas" aria-hidden="true"></canvas>
+
+    <!-- SITE WRAPPER -->
+    <div class="site-wrapper">
+
+        <!-- STICKY TERMINAL NAVBAR -->
+        <nav class="navbar-dock" id="navbar">
+            <div class="nav-container">
+                <!-- Window Controls Brand -->
+                <a href="#hero" class="nav-brand">
+                    <div class="nav-window-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <span class="brand-prompt">ayush@omarchy:~</span>
+                    <span class="brand-status-dot" title="Active session · Open for collaboration"></span>
+                </a>
+
+                <!-- Nav Links -->
+                <ul class="nav-menu">
+                    <li><a href="#hero" class="nav-link"><span class="nav-num">01.</span> About</a></li>
+                    <li><a href="#projects" class="nav-link"><span class="nav-num">02.</span> Projects</a></li>
+                    <li><a href="#terminal" class="nav-link"><span class="nav-num">03.</span> Terminal</a></li>
+                    <li><a href="#stack" class="nav-link"><span class="nav-num">04.</span> Stack</a></li>
+                    <li><a href="#connect" class="nav-link"><span class="nav-num">05.</span> Connect</a></li>
+                </ul>
+
+                <!-- Utility Actions -->
+                <div class="nav-actions">
+                    <button class="nav-btn" id="open-palette-btn" title="Open Command Palette (Ctrl+K or ⌘K)">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        <span class="kbd-badge">⌘K</span>
+                    </button>
+
+                    <button class="nav-btn" id="sound-toggle-btn" title="Toggle Terminal Audio Synthesizer">
+                        <span id="sound-indicator" class="sound-off">SFX: OFF</span>
+                    </button>
+
+                    <button class="nav-btn theme-cycle-btn" id="theme-toggle-btn" title="Switch Terminal Color Palette">
+                        <span class="theme-swatch"></span>
+                        <span id="theme-btn-label">Obsidian</span>
+                    </button>
+
+                    <a href="https://github.com/AyushKr2003" target="_blank" rel="noopener noreferrer" class="nav-btn nav-btn-icon" title="GitHub Profile">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- HERO SECTION: TERMINAL WORKSTATION -->
+        <header class="hero-section" id="hero">
+            <div class="container">
+                <div class="hero-grid">
+
+                    <!-- Left: Terminal Bio & Actions -->
+                    <div class="hero-left">
+                        <div class="terminal-pill">
+                            <span class="pill-dot"></span>
+                            <span>ayush@omarchy:~$ whoami</span>
+                        </div>
+
+                        <h1 class="hero-name">
+                            Ayush Kumar <span class="accent-text">Singh</span>
+                        </h1>
+
+                        <p class="hero-subhead">
+                            Software Engineer · Backend & Flutter Developer
+                        </p>
+
+                        <p class="hero-bio">
+                            Building production REST APIs with Laravel & FastAPI, cross-platform Flutter apps, and AI-integrated web platforms — independently and in remote/distributed teams. Open-source contributor with 49+ public repositories and 180+ community GitHub stars.
+                        </p>
+
+                        <div class="hero-actions">
+                            <a href="#projects" class="term-btn term-btn-primary">
+                                <span>❯ ls ~/projects/</span>
+                            </a>
+                            <a href="#terminal" class="term-btn term-btn-secondary">
+                                <span>❯ launch terminal</span>
+                            </a>
+                            <a href="Ayush_Kumar_Singh_Resume.pdf" target="_blank" rel="noopener noreferrer" class="term-btn term-btn-ghost">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                <span>resume</span>
+                            </a>
+                            <button class="term-btn term-btn-ghost copy-email-btn" data-email="ayushkrsngh2003@gmail.com">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                                <span>copy email</span>
+                            </button>
+                        </div>
+
+                        <div class="hero-tags">
+                            <span class="hero-tag">#laravel</span>
+                            <span class="hero-tag">#fastapi</span>
+                            <span class="hero-tag">#flutter</span>
+                            <span class="hero-tag">#python</span>
+                            <span class="hero-tag">#opensource</span>
+                            <span class="hero-tag">#linux</span>
+                            <span class="hero-tag">#hyprland</span>
+                        </div>
+                    </div>
+
+                    <!-- Right: Fastfetch Neofetch Terminal Window -->
+                    <div class="hero-right">
+                        <div class="terminal-card">
+                            <div class="card-header">
+                                <div class="nav-window-dots">
+                                    <span class="dot red"></span>
+                                    <span class="dot yellow"></span>
+                                    <span class="dot green"></span>
+                                </div>
+                                <span class="card-title">fastfetch --config profile</span>
+                                <span class="card-tag">active</span>
+                            </div>
+                            <div class="card-body">
+<pre class="fastfetch-output">
+<span class="art-green">   __ _____   ____  __ ____ __  </span>
+<span class="art-green">  / // / _ \ / __/ / // __// / </span> <span class="dim">┌─────────────────────────── Telemetry ───────────────────────────┐</span>
+<span class="art-green"> / _  / // /_\ \ / _  \\ \/ /  </span> │ <span class="accent-cyan"> User</span>        : <span class="val-white">Ayush Kumar Singh</span> (AyushKr2003)        │
+<span class="art-green">/_//_/\___/___/ /_//_/ \_/    </span> │ <span class="accent-cyan"> Role</span>        : <span class="val-white">Backend Developer</span> @ Fillip Technology  │
+                                    │ <span class="accent-cyan"> OS</span>          : <span class="val-white">Omarchy Linux</span> (Arch-based)             │
+                                    │ <span class="accent-cyan">🧱 Backend</span>     : <span class="val-white">Laravel</span> • <span class="val-white">FastAPI</span> • PostgreSQL/MySQL        │
+                                    │ <span class="accent-cyan">📱 Mobile</span>      : <span class="val-white">Flutter</span> (MVVM / FDD)                    │
+                                    │ <span class="accent-cyan">🐚 Shell</span>      : <span class="val-white">Bash</span> & Zsh                              │
+                                    │ <span class="accent-cyan">🎓 Education</span>   : <span class="val-white">B.E. CSE, Chandigarh University</span>        │
+                                    │ <span class="accent-cyan">🌐 GitHub</span>      : <span class="val-white">https://github.com/AyushKr2003</span>          │
+                                    │ <span class="accent-cyan">⚡ Status</span>      : <span class="accent-green">● Open for SWE / Backend / Flutter roles</span>│
+                                    <span class="dim">└─────────────────────────────────────────────────────────────────┘</span>
+</pre>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <!-- PROJECTS HUB SECTION -->
+        <section class="projects-section" id="projects">
+            <div class="container">
+                <div class="section-titlebar">
+                    <span class="titlebar-path">~/projects/</span>
+                    <h2 class="titlebar-heading">Featured Repositories & Work</h2>
+                    <span class="titlebar-cmd">ls -la --group-directories-first</span>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="filter-toolbar">
+                    <div class="filter-tabs">
+                        <button class="filter-tab active" data-filter="all">
+                            <span>*</span> All (<span id="count-all">8</span>)
+                        </button>
+                        <button class="filter-tab" data-filter="backend">
+                            <span>🧱</span> Backend / Full-Stack (<span id="count-backend">2</span>)
+                        </button>
+                        <button class="filter-tab" data-filter="flutter">
+                            <span>📱</span> Flutter / Mobile (<span id="count-flutter">3</span>)
+                        </button>
+                        <button class="filter-tab" data-filter="opensource">
+                            <span>🐧</span> Linux / Open Source (<span id="count-opensource">3</span>)
+                        </button>
+                    </div>
+
+                    <a href="https://github.com/AyushKr2003?tab=repositories" target="_blank" rel="noopener noreferrer" class="term-link-btn">
+                        <span>github.com/AyushKr2003 ↗</span>
+                    </a>
+                </div>
+
+                <!-- Static High-Reliability Project Grid -->
+                <div class="projects-grid" id="projects-grid">
+
+                    <!-- niri-caelestia-shell -->
+                    <div class="project-card" data-category="opensource">
+                        <div class="project-card-header">
+                            <span class="file-icon">🐚</span>
+                            <a href="https://github.com/AyushKr2003/niri-caelestia-shell" target="_blank" rel="noopener noreferrer" class="project-name">niri-caelestia-shell</a>
+                            <span class="project-badge badge-featured">FEATURED · 172★</span>
+                        </div>
+                        <p class="project-desc">
+                            A community desktop-shell fork ported to the niri window manager. Grew to 172+ stars and 21 forks, becoming one of the more widely adopted niri desktop shells in the ricing community.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">QML</span>
+                            <span class="tag">Niri</span>
+                            <span class="tag">Wayland</span>
+                            <span class="tag">Shell</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/AyushKr2003/niri-caelestia-shell" target="_blank" rel="noopener noreferrer" class="card-btn">Repository ↗</a>
+                            <span class="card-info">21 Forks</span>
+                        </div>
+                    </div>
+
+                    <!-- SageSearch -->
+                    <div class="project-card" data-category="flutter">
+                        <div class="project-card-header">
+                            <span class="file-icon">🔍</span>
+                            <a href="https://github.com/AyushKr2003/sage_search" target="_blank" rel="noopener noreferrer" class="project-name">SageSearch</a>
+                            <span class="project-badge badge-featured">FEATURED</span>
+                        </div>
+                        <p class="project-desc">
+                            AI-powered search platform that synthesizes information from multiple web sources in real time. Integrates Google Gemini and Tavily APIs for AI-generated responses and intelligent search ranking, with a responsive Flutter frontend over WebSockets.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Flutter</span>
+                            <span class="tag">FastAPI</span>
+                            <span class="tag">Gemini API</span>
+                            <span class="tag">WebSocket</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/AyushKr2003/sage_search" target="_blank" rel="noopener noreferrer" class="card-btn">Repository ↗</a>
+                            <span class="card-info">AI Platform</span>
+                        </div>
+                    </div>
+
+                    <!-- Nex Vote -->
+                    <div class="project-card" data-category="flutter">
+                        <div class="project-card-header">
+                            <span class="file-icon">🗳️</span>
+                            <a href="https://github.com/AyushKr2003/NexVote" target="_blank" rel="noopener noreferrer" class="project-name">Nex Vote</a>
+                            <span class="project-badge">TEAM PROJECT</span>
+                        </div>
+                        <p class="project-desc">
+                            Secure blockchain voting platform. Built the Flutter frontend integrated with backend services and an Ethereum smart contract, implementing user authentication, election management, and real-time blockchain-secured vote counting.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Flutter</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">Solidity</span>
+                            <span class="tag">Ethereum</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/AyushKr2003/NexVote" target="_blank" rel="noopener noreferrer" class="card-btn">Repository ↗</a>
+                            <span class="card-info">Blockchain</span>
+                        </div>
+                    </div>
+
+                    <!-- Musixir -->
+                    <div class="project-card" data-category="flutter">
+                        <div class="project-card-header">
+                            <span class="file-icon">🎵</span>
+                            <a href="https://github.com/AyushKr2003/Musixir" target="_blank" rel="noopener noreferrer" class="project-name">Musixir</a>
+                            <span class="project-badge">MOBILE</span>
+                        </div>
+                        <p class="project-desc">
+                            Feature-rich music streaming platform with background playback, backed by a custom FastAPI service. Built end-to-end from mobile UI to backend media service.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Flutter</span>
+                            <span class="tag">FastAPI</span>
+                            <span class="tag">Streaming</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/AyushKr2003/Musixir" target="_blank" rel="noopener noreferrer" class="card-btn">Repository ↗</a>
+                            <span class="card-info">Mobile App</span>
+                        </div>
+                    </div>
+
+                    <!-- JourneyLog -->
+                    <div class="project-card" data-category="backend">
+                        <div class="project-card-header">
+                            <span class="file-icon">✈️</span>
+                            <a href="https://github.com/AyushKr2003/JourneyLog" target="_blank" rel="noopener noreferrer" class="project-name">JourneyLog</a>
+                            <span class="project-badge">FULL STACK</span>
+                        </div>
+                        <p class="project-desc">
+                            Tourism & travel blog platform with role-based authentication for Admin and User roles, category-based article filtering, blog CRUD workflows, and Laravel file storage for image uploads and dynamic post publishing.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">PHP</span>
+                            <span class="tag">Laravel</span>
+                            <span class="tag">SQLite</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/AyushKr2003/JourneyLog" target="_blank" rel="noopener noreferrer" class="card-btn">Repository ↗</a>
+                            <span class="card-info">Web Platform</span>
+                        </div>
+                    </div>
+
+                    <!-- omarchy-overview -->
+                    <div class="project-card" data-category="opensource">
+                        <div class="project-card-header">
+                            <span class="file-icon">🧭</span>
+                            <a href="https://github.com/AyushKr2003/omarchy-overview" target="_blank" rel="noopener noreferrer" class="project-name">omarchy-overview</a>
+                            <span class="project-badge">WIDGET · 8★</span>
+                        </div>
+                        <p class="project-desc">
+                            Workspace overview widget with live window previews for the Omarchy desktop shell, giving an at-a-glance view of open windows across workspaces.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">QML</span>
+                            <span class="tag">Quickshell</span>
+                            <span class="tag">Omarchy</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/AyushKr2003/omarchy-overview" target="_blank" rel="noopener noreferrer" class="card-btn">Repository ↗</a>
+                            <span class="card-info">Omarchy Widget</span>
+                        </div>
+                    </div>
+
+                    <!-- shell-settings -->
+                    <div class="project-card" data-category="opensource">
+                        <div class="project-card-header">
+                            <span class="file-icon">⚙️</span>
+                            <a href="https://github.com/AyushKr2003/shell-settings" target="_blank" rel="noopener noreferrer" class="project-name">shell-settings</a>
+                            <span class="project-badge">TOOL · 6★</span>
+                        </div>
+                        <p class="project-desc">
+                            Shell configuration and plugin utilities for a faster, more consistent terminal & Linux desktop setup.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Shell</span>
+                            <span class="tag">Linux</span>
+                            <span class="tag">Config</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/AyushKr2003/shell-settings" target="_blank" rel="noopener noreferrer" class="card-btn">Repository ↗</a>
+                            <span class="card-info">CLI Tool</span>
+                        </div>
+                    </div>
+
+                    <!-- omarchy-dotfiles -->
+                    <div class="project-card" data-category="opensource">
+                        <div class="project-card-header">
+                            <span class="file-icon">🐧</span>
+                            <a href="https://github.com/AyushKr2003/omarchy-dotfiles" target="_blank" rel="noopener noreferrer" class="project-name">omarchy-dotfiles</a>
+                            <span class="project-badge">DOTFILES</span>
+                        </div>
+                        <p class="project-desc">
+                            Personal dotfiles, shell plugins, and TUI tools built for a daily-driver Omarchy Linux + Hyprland setup — including this very portfolio.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Hyprland</span>
+                            <span class="tag">Omarchy</span>
+                            <span class="tag">Dotfiles</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/AyushKr2003/omarchy-dotfiles" target="_blank" rel="noopener noreferrer" class="card-btn">Repository ↗</a>
+                            <span class="card-info">Dotfiles</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE VIRTUAL TERMINAL SECTION -->
+        <section class="terminal-section" id="terminal">
+            <div class="container">
+                <div class="section-titlebar">
+                    <span class="titlebar-path">~/bin/</span>
+                    <h2 class="titlebar-heading">Interactive Command Shell</h2>
+                    <span class="titlebar-cmd">./ayush-cli --run interactive</span>
+                </div>
+
+                <div class="interactive-terminal-window">
+                    <!-- Titlebar -->
+                    <div class="term-win-header">
+                        <div class="nav-window-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="term-win-title">ayush@omarchy:~ (bash / linux)</span>
+                        <div class="term-win-tools">
+                            <button class="term-mini-btn" id="term-clear-btn" title="Clear screen">clear</button>
+                            <button class="term-mini-btn" id="term-help-btn" title="Show commands">help</button>
+                        </div>
+                    </div>
+
+                    <!-- Terminal Scroll Body -->
+                    <div class="term-win-body" id="term-output-container">
+                        <div class="term-welcome-msg">
+                            <span class="term-dim">Omarchy Linux (x86_64) — Hyprland</span><br/>
+                            <span class="term-cyan">Type <b>help</b> for available commands, or click the quick shortcuts below.</span>
+                        </div>
+                        <div id="term-history-log"></div>
+
+                        <!-- Active Input Row -->
+                        <div class="term-prompt-row">
+                            <span class="term-prompt-label">ayush@omarchy:~$</span>
+                            <input type="text" id="term-input" class="term-real-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="type 'help', 'whoami', 'experience', 'theme velvet-dusk'..." />
+                        </div>
+                    </div>
+
+                    <!-- Clickable Quick Command Chips -->
+                    <div class="term-chips-bar">
+                        <span class="chips-label">Shortcuts:</span>
+                        <button class="term-chip" data-cmd="help">help</button>
+                        <button class="term-chip" data-cmd="whoami">whoami</button>
+                        <button class="term-chip" data-cmd="fastfetch">fastfetch</button>
+                        <button class="term-chip" data-cmd="projects">projects</button>
+                        <button class="term-chip" data-cmd="experience">experience</button>
+                        <button class="term-chip" data-cmd="skills">skills</button>
+                        <button class="term-chip" data-cmd="resume">resume</button>
+                        <button class="term-chip" data-cmd="theme velvet-dusk">theme velvet-dusk</button>
+                        <button class="term-chip" data-cmd="theme gruvbox">theme gruvbox</button>
+                        <button class="term-chip" data-cmd="matrix">matrix</button>
+                        <button class="term-chip" data-cmd="clear">clear</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SYSTEM STACK & ARSENAL SECTION -->
+        <section class="stack-section" id="stack">
+            <div class="container">
+                <div class="section-titlebar">
+                    <span class="titlebar-path">/etc/environment/</span>
+                    <h2 class="titlebar-heading">Technical Arsenal & Stack</h2>
+                    <span class="titlebar-cmd">cat /etc/environment/stack.json</span>
+                </div>
+
+                <!-- Btop Skill Resource Gauge -->
+                <div class="btop-box">
+                    <div class="btop-header">
+                        <span class="btop-title">BTOP v1.3.2 — Core Skills &amp; Proficiency Allocation</span>
+                        <span class="btop-metrics">Repos: 49+ | Stars: 180+ | Mode: Shipping</span>
+                    </div>
+                    <div class="btop-body">
+                        <div class="btop-bar-row">
+                            <span class="btop-label">Flutter &amp; Mobile Development</span>
+                            <div class="btop-track"><div class="btop-fill" style="width: 88%;"></div></div>
+                            <span class="btop-pct">88%</span>
+                        </div>
+                        <div class="btop-bar-row">
+                            <span class="btop-label">Backend (Laravel / FastAPI)</span>
+                            <div class="btop-track"><div class="btop-fill" style="width: 85%;"></div></div>
+                            <span class="btop-pct">85%</span>
+                        </div>
+                        <div class="btop-bar-row">
+                            <span class="btop-label">Linux &amp; Shell Scripting</span>
+                            <div class="btop-track"><div class="btop-fill" style="width: 90%;"></div></div>
+                            <span class="btop-pct">90%</span>
+                        </div>
+                        <div class="btop-bar-row">
+                            <span class="btop-label">SQL &amp; Database Design</span>
+                            <div class="btop-track"><div class="btop-fill" style="width: 80%;"></div></div>
+                            <span class="btop-pct">80%</span>
+                        </div>
+                        <div class="btop-bar-row">
+                            <span class="btop-label">Python &amp; Automation</span>
+                            <div class="btop-track"><div class="btop-fill" style="width: 75%;"></div></div>
+                            <span class="btop-pct">75%</span>
+                        </div>
+                        <div class="btop-bar-row">
+                            <span class="btop-label">Blockchain / Solidity (Ethereum)</span>
+                            <div class="btop-track"><div class="btop-fill" style="width: 55%;"></div></div>
+                            <span class="btop-pct">55%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stack Cards Grid -->
+                <div class="stack-grid">
+                    <div class="stack-card">
+                        <div class="stack-card-title">
+                            <span class="stack-icon">⚡</span>
+                            <span>Languages</span>
+                        </div>
+                        <ul class="stack-list">
+                            <li><code>Python</code> <span>FastAPI backends &amp; automation</span></li>
+                            <li><code>PHP</code> <span>Laravel APIs &amp; web platforms</span></li>
+                            <li><code>Dart</code> <span>Flutter cross-platform apps</span></li>
+                            <li><code>C / C++ / Java</code> <span>DSA &amp; systems fundamentals</span></li>
+                            <li><code>SQL</code> <span>Relational schema &amp; queries</span></li>
+                            <li><code>Bash / Shell</code> <span>Linux automation &amp; hooks</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="stack-card">
+                        <div class="stack-card-title">
+                            <span class="stack-icon">🧱</span>
+                            <span>Frameworks &amp; Data</span>
+                        </div>
+                        <ul class="stack-list">
+                            <li><code>Laravel</code> <span>RESTful APIs &amp; auth</span></li>
+                            <li><code>FastAPI</code> <span>Async Python microservices</span></li>
+                            <li><code>Flutter</code> <span>MVVM &amp; Feature-Driven Dev</span></li>
+                            <li><code>PostgreSQL / MySQL</code> <span>Production relational data</span></li>
+                            <li><code>SQLite</code> <span>Lightweight app storage</span></li>
+                            <li><code>WebSockets</code> <span>Real-time app features</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="stack-card">
+                        <div class="stack-card-title">
+                            <span class="stack-icon">🛠️</span>
+                            <span>Workflow &amp; Tools</span>
+                        </div>
+                        <ul class="stack-list">
+                            <li><code>Git &amp; GitHub</code> <span>Version control &amp; open source</span></li>
+                            <li><code>Linux</code> <span>Omarchy / Hyprland daily driver</span></li>
+                            <li><code>Postman</code> <span>API testing &amp; documentation</span></li>
+                            <li><code>Solidity</code> <span>Ethereum smart contracts</span></li>
+                            <li><code>Unit Testing</code> <span>Clean, reliable code practices</span></li>
+                            <li><code>REST API Design</code> <span>Auth &amp; authorization patterns</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CONNECT & VIM STATUSLINE FOOTER -->
+        <footer class="connect-section" id="connect">
+            <div class="container">
+                <div class="section-titlebar">
+                    <span class="titlebar-path">./connect.sh</span>
+                    <h2 class="titlebar-heading">Open Communication Channels</h2>
+                    <span class="titlebar-cmd">./connect.sh --list-endpoints</span>
+                </div>
+
+                <div class="connect-card">
+                    <div class="connect-grid">
+                        <div class="connect-col">
+                            <span class="connect-label">EMAIL ENDPOINT</span>
+                            <div class="connect-val-row">
+                                <a href="mailto:ayushkrsngh2003@gmail.com" class="connect-link">ayushkrsngh2003@gmail.com</a>
+                                <button class="term-mini-btn copy-email-btn" data-email="ayushkrsngh2003@gmail.com">copy</button>
+                            </div>
+                        </div>
+
+                        <div class="connect-col">
+                            <span class="connect-label">GITHUB PROFILE</span>
+                            <div class="connect-val-row">
+                                <a href="https://github.com/AyushKr2003" target="_blank" rel="noopener noreferrer" class="connect-link">github.com/AyushKr2003 ↗</a>
+                            </div>
+                        </div>
+
+                        <div class="connect-col">
+                            <span class="connect-label">LINKEDIN</span>
+                            <div class="connect-val-row">
+                                <a href="https://www.linkedin.com/in/ayush-kumar-singh-8b6b00249/" target="_blank" rel="noopener noreferrer" class="connect-link">linkedin.com/in/ayush-kumar-singh ↗</a>
+                            </div>
+                        </div>
+
+                        <div class="connect-col">
+                            <span class="connect-label">STATUS</span>
+                            <div class="connect-status">
+                                <span class="status-pulse"></span>
+                                <span>Open for Software Engineer / Backend / Flutter Developer roles</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Authentic Vim / Neovim Statusline Footer -->
+                <div class="vim-statusline">
+                    <div class="status-left">
+                        <span class="status-mode">NORMAL</span>
+                        <span class="status-file">~/portfolio.html</span>
+                        <span class="status-sep">•</span>
+                        <span class="status-meta">utf-8[unix]</span>
+                        <span class="status-sep">•</span>
+                        <span class="status-pos">100%</span>
+                    </div>
+                    <div class="status-right">
+                        <span class="status-branch">git:main </span>
+                        <span class="status-sep">•</span>
+                        <span class="status-copy">© 2026 Ayush Kumar Singh (@AyushKr2003)</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- COMMAND PALETTE MODAL (Ctrl+K / ⌘K) -->
+    <div class="palette-modal" id="palette-modal" aria-hidden="true">
+        <div class="palette-backdrop" id="palette-backdrop"></div>
+        <div class="palette-box">
+            <div class="palette-header">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="palette-input" placeholder="Type a command or jump to section..." autocomplete="off" />
+                <kbd class="palette-esc">ESC</kbd>
+            </div>
+            <div class="palette-results" id="palette-results">
+                <!-- Injected dynamically by main.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST CONTAINER -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Main JavaScript -->
+    <script src="src/main.js"></script>
+</body>
+</html>
