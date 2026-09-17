@@ -241,9 +241,9 @@ SEE ALSO
 
 <br/>
 
-<!-- Terminal Matrix Theme Stats -->
-<img src="https://github-readme-stats.vercel.app/api?username=AyushKr2003&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=00ff9f&text_color=c9d1d9&icon_color=00ff9f" alt="GitHub Stats" height="155" />
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=AyushKr2003&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=00ff9f&text_color=c9d1d9" alt="Top Languages" height="155" />
+<!-- Terminal Matrix Theme Stats (self-generated via GitHub Actions, see .github/workflows/github-stats.yml) -->
+<img src="https://raw.githubusercontent.com/AyushKr2003/AyushKr2003/main/generated/overview.svg" alt="GitHub Stats" width="48%" />
+<img src="https://raw.githubusercontent.com/AyushKr2003/AyushKr2003/main/generated/languages.svg" alt="Top Languages" width="48%" />
 
 <br/>
 
@@ -251,7 +251,7 @@ SEE ALSO
 
 </div>
 
-> ℹ️ The contribution snake above needs the workflow in `.github/workflows/snake.yml` (included in this folder) running on your **profile repository** (`AyushKr2003/AyushKr2003`) to generate the `output` branch. Copy that file into your profile repo's `.github/workflows/` and it will populate automatically after the first run.
+> ℹ️ Both the contribution snake and the stats cards above are self-generated, not third-party live widgets — the public `github-readme-stats.vercel.app` instance is frequently rate-limited or paused, so this uses two GitHub Actions (`.github/workflows/snake.yml` and `.github/workflows/github-stats.yml`, both included in this folder) that run on a schedule and commit static SVGs straight into your **profile repository** (`AyushKr2003/AyushKr2003`). Copy both workflow files into that repo's `.github/workflows/`, push, and run each once manually from the Actions tab (`Run workflow`) — the images will populate right after.
 
 ---
 
