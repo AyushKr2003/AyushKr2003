@@ -39,17 +39,17 @@
 ### 💻 `fastfetch --config profile`
 
 ```bash
-   __ _____   ____  __ ____ __      ┌───────────────────── Telemetry ─────────────────────┐
-  / // / _ \ / __/ / // __// /      │  User        : Ayush Kumar Singh (AyushKr2003)     │
- / _  / // /_\ \ / _  \\ \/ /       │  Role        : Backend Developer @ Fillip Tech     │
-/_//_/\___/___/ /_//_/ \_/          │  Environment : Omarchy Linux • Hyprland (Wayland)  │
-                                    │ 🧱 Backend     : Laravel • FastAPI • PostgreSQL/MySQL│
-                                    │ 📱 Mobile      : Flutter (MVVM / FDD)                │
-                                    │ 🐚 Shell      : Bash • Zsh                          │
-                                    │ 🎓 Education   : B.E. CSE, Chandigarh University     │
-                                    │ 🌐 Portfolio   : ayushkrsnghportfolio.netlify.app    │
-                                    │ ⚡ Status      : Open for SWE / Backend / Flutter    │
-                                    └─────────────────────────────────────────────────────┘
+    _____  ____  _______ __  __      ┌───────────────────── Telemetry ─────────────────────┐
+   /   \ \/ / / / / ___// / / /      │  User        : Ayush Kumar Singh (AyushKr2003)      │
+  / /| |\  / / / /\__ \/ /_/ /       │  Role        : Backend Developer @ Fillip Tech      │
+ / ___ |/ / /_/ /___/ / __  /        │  Environment : Omarchy Linux • Hyprland (Wayland)   │
+/_/  |_/_/\____//____/_/ /_/         │  Backend     : Laravel • FastAPI • PostgreSQL/MySQL │
+                                     │  Mobile      : Flutter (MVVM / FDD)                 │
+                                     │  Shell       : Bash • Zsh                           │
+                                     │  Education   : B.E. CSE, Chandigarh University      │
+                                     │  Portfolio   : ayushkrsnghportfolio.netlify.app     │
+                                     │  Status      : Open for SWE / Backend / Flutter     │
+                                     └─────────────────────────────────────────────────────┘
 ```
 
 ---
