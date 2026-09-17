@@ -241,17 +241,22 @@ SEE ALSO
 
 <br/>
 
-<!-- Terminal Matrix Theme Stats (self-generated via GitHub Actions, see .github/workflows/github-stats.yml) -->
-<img src="https://raw.githubusercontent.com/AyushKr2003/AyushKr2003/main/generated/overview.svg" alt="GitHub Stats" width="48%" />
-<img src="https://raw.githubusercontent.com/AyushKr2003/AyushKr2003/main/generated/languages.svg" alt="Top Languages" width="48%" />
-
-<br/>
-
 <img src="https://github-readme-streak-stats.herokuapp.com/?user=AyushKr2003&theme=tokyonight&hide_border=true&background=0d1117&ring=00ff9f&fire=00ff9f&currStreakLabel=00ff9f" alt="GitHub Streak" height="145" />
 
 </div>
 
-> ℹ️ Both the contribution snake and the stats cards above are self-generated, not third-party live widgets — the public `github-readme-stats.vercel.app` instance is frequently rate-limited or paused, so this uses two GitHub Actions (`.github/workflows/snake.yml` and `.github/workflows/github-stats.yml`, both included in this folder) that run on a schedule and commit static SVGs straight into your **profile repository** (`AyushKr2003/AyushKr2003`). Copy both workflow files into that repo's `.github/workflows/`, push, and run each once manually from the Actions tab (`Run workflow`) — the images will populate right after.
+```
+┌─ gh stats --summary ──────────────────────────────────────────┐
+│                                                                │
+│   Public Repos   : 50                                         │
+│   Total Stars    : 187      ★ niri-caelestia-shell leads (172)│
+│   Total Forks    : 22                                         │
+│   Followers      : 11                                         │
+│                                                                │
+└────────────────────────────────────────────────────────────────┘
+```
+
+> ℹ️ The contribution snake above is self-generated via the GitHub Action in `.github/workflows/snake.yml` (included in this folder), which commits a static SVG to an `output` branch on your **profile repository** (`AyushKr2003/AyushKr2003`) — copy that one file into `.github/workflows/`, push, and run it once from the Actions tab if it hasn't already. The summary block and the "Technical Arsenal" stack section above it are static/curated on purpose — the two live `github-readme-stats.vercel.app` widgets that used to sit here were frequently down (the public instance gets rate-limited/paused), so rather than add another moving part, the numbers are just kept up to date by hand.
 
 ---
 
