@@ -1,19 +1,5 @@
 <div align="center">
 
-<!-- Terminal Window Mockup Frame -->
-<table border="0" cellpadding="0" cellspacing="0" width="100%">
-  <tr>
-    <td align="left" style="background-color: #161b22; border-radius: 12px; padding: 12px 18px; border: 1px solid #30363d;">
-      <span style="color: #ff5f56; font-size: 14px;">●</span>
-      <span style="color: #ffbd2e; font-size: 14px; margin-left: 6px;">●</span>
-      <span style="color: #27c93f; font-size: 14px; margin-left: 6px;">●</span>
-      &nbsp;&nbsp;&nbsp;
-      <kbd><b>ayush@omarchy:~$</b></kbd>
-      <span style="font-family: monospace; color: #8b949e;"> whoami</span>
-    </td>
-  </tr>
-</table>
-
 <br/>
 
 # Ayush Kumar Singh
