@@ -72,12 +72,12 @@ Shipped cross-platform Flutter features (MVVM/FDD) integrated with REST APIs, on
 │                                                                │
 │   Public Repos   : 50                                          │
 │   Total Stars    : 187   niri-caelestia-shell leads (172)      │
-│   Total Forks    : 22                                          │
-│   Followers      : 11                                          │
+│   Total Forks    : 23                                          │
+│   Followers      : 10                                          │
 │                                                                │
 └────────────────────────────────────────────────────────────────┘
 ```
-<sub>Auto-updated daily by <code>.github/workflows/update-stats.yml</code> · last refreshed: 2026-09-18</sub>
+<sub>Auto-updated daily by <code>.github/workflows/update-stats.yml</code> · last refreshed: 2026-09-19</sub>
 <!-- STATS-END -->
 
 <sub>Pulled directly from the GitHub REST API by [`update_stats.py`](.github/scripts/update_stats.py) — no third-party rendering service involved.</sub>
