@@ -70,14 +70,14 @@ Shipped cross-platform Flutter features (MVVM/FDD) integrated with REST APIs, on
 ```
 ┌─ gh stats --summary ───────────────────────────────────────────┐
 │                                                                │
-│   Public Repos   : 51                                          │
-│   Total Stars    : 201   niri-caelestia-shell leads (171)      │
+│   Public Repos   : 52                                          │
+│   Total Stars    : 203   niri-caelestia-shell leads (171)      │
 │   Total Forks    : 22                                          │
 │   Followers      : 11                                          │
 │                                                                │
 └────────────────────────────────────────────────────────────────┘
 ```
-<sub>Auto-updated daily by <code>.github/workflows/update-stats.yml</code> · last refreshed: 2026-09-25</sub>
+<sub>Auto-updated daily by <code>.github/workflows/update-stats.yml</code> · last refreshed: 2026-09-26</sub>
 <!-- STATS-END -->
 
 <sub>Pulled directly from the GitHub REST API by [`update_stats.py`](.github/scripts/update_stats.py) — no third-party rendering service involved.</sub>
