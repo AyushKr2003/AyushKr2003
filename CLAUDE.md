@@ -9,7 +9,7 @@ Personal portfolio of Ayush Kumar Singh (software engineer: Flutter, FastAPI/Lar
 > I want to completely redesign my portfolio around high-quality motion and interaction. Every scroll should feel fresh. Don't just copy existing portfolio patterns. Research how people are creating this kind of experience, then come up with something unique and premium. I don't want another generic AI-generated portfolio that looks like AI slop.
 
 What this means in practice:
-- **Motion is the medium, not decoration.** Each section has one motion idea, and that idea comes from the thing the section is about (see the README table). A new section or redesign needs its own idea. Don't reuse fade-up-on-scroll.
+- **Motion is the medium, not decoration.** Each section has one motion idea, and that idea comes from the thing the section is about (see the table in `docs/portfolio.md`). A new section or redesign needs its own idea. Don't reuse fade-up-on-scroll.
 - **Every scroll should feel fresh.** Neighbouring sections shouldn't share an interaction pattern.
 - **Research before designing.** Look at how award-level studios and developers do this kind of experience, then do something original instead of copying a known template.
 - **No AI slop.** That rules out generic gradient blobs, glassmorphism cards, "Hi, I'm X 👋" heroes, bento grids of buzzwords, emoji bullets, purple-to-blue gradients, stock icon rows and filler copy. The copy should be specific, factual and in Ayush's voice.

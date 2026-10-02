@@ -3,6 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+    paths-ignore: ["README.md", "profile/**", "docs/**", ".github/workflows/profile.yml"]
   workflow_dispatch:
 
 permissions:
