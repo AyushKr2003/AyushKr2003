@@ -39,6 +39,15 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
+/* no visible scrollbars: the status bar's depth readout already shows
+   where you are, and Lenis still scrolls with wheel, touch and keys */
+* {
+  scrollbar-width: none;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+
 html.lenis,
 html.lenis body {
   height: auto;
