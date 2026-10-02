@@ -1,5 +1,15 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { mountApp, loadAppFonts } from "./apps/core.js";
+import { initGallery } from "./apps/gallery.js";
+import sage from "./apps/sage.js";
+import niri from "./apps/niri.js";
+import nexvote from "./apps/nexvote.js";
+import musixir from "./apps/musixir.js";
+import journeylog from "./apps/journeylog.js";
+import omacale from "./apps/omacale.js";
+
+const APPS = { sage, niri, nexvote, musixir, journeylog, omacale };
 
 /*
   Selected work behaves like niri, the scrollable-tiling compositor my
@@ -127,53 +137,9 @@ export function initWindows(ctx) {
     });
   }
 
-  initVisuals(section, ctx);
+  // each window runs a rebuilt copy of the real app UI
+  ScrollTrigger.create({ trigger: section, start: "top 250%", once: true, onEnter: loadAppFonts });
+  section.querySelectorAll("[data-app]").forEach((viz) => mountApp(viz, APPS[viz.dataset.app], ctx));
+  initGallery(ctx);
   ScrollTrigger.addEventListener("refreshInit", measure);
-}
-
-/* small live visuals inside each project window */
-function initVisuals(section, ctx) {
-  // SageSearch: a query that types, clears, and types again
-  const q = section.querySelector("[data-type]");
-  const full = q.dataset.type;
-  const queries = [full, "fastapi vs laravel for realtime?", "explain mvvm in flutter"];
-  let qi = 0;
-  let n = 0;
-  let dir = 1;
-  let hold = 0;
-  setInterval(() => {
-    if (ctx.reduced) {
-      q.textContent = full;
-      return;
-    }
-    const text = queries[qi];
-    if (hold > 0) return hold--;
-    n += dir;
-    if (n >= text.length) {
-      dir = -1;
-      hold = 28;
-    } else if (n <= 0) {
-      dir = 1;
-      qi = (qi + 1) % queries.length;
-      hold = 4;
-    }
-    q.textContent = queries[qi].slice(0, Math.max(0, n));
-  }, 55);
-
-  // Musixir: a waveform with a playhead
-  const bars = section.querySelector(".viz-wave__bars");
-  const N = 56;
-  const els = Array.from({ length: N }, () => bars.appendChild(document.createElement("i")));
-  const seed = els.map((_, i) => 0.25 + 0.75 * Math.abs(Math.sin(i * 1.7) * Math.cos(i * 0.37)));
-  let visible = false;
-  new IntersectionObserver(([e]) => (visible = e.isIntersecting)).observe(bars);
-  gsap.ticker.add((t) => {
-    if (!visible) return;
-    const head = Math.floor(((t * 0.06) % 1) * N);
-    els.forEach((el, i) => {
-      const live = ctx.reduced ? 1 : 0.65 + 0.35 * Math.sin(t * 6 + i * 0.6);
-      el.style.setProperty("--h", (seed[i] * live).toFixed(3));
-      el.classList.toggle("p", i <= head);
-    });
-  });
 }

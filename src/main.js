@@ -1,6 +1,7 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
+import "./apps.css";
 
 import { initHero } from "./hero.js";
 import { initLayers } from "./layers.js";

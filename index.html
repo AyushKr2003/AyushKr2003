@@ -178,124 +178,110 @@ rank  gemini+tavily    <b>12ms</b></pre>
 
           <div class="strip" data-strip>
             <!-- each column = one project window -->
-            <article class="col" style="--w: 0.46" data-col>
+            <article class="col" style="--w: 0.62" data-col>
               <div class="win">
-                <div class="win__viz viz-sage" aria-hidden="true">
-                  <div class="viz-sage__q mono"><span data-type="what is a wayland compositor?"></span><i></i></div>
-                  <div class="viz-sage__src">
-                    <b style="--d: 0"></b><b style="--d: 1"></b><b style="--d: 2"></b><b style="--d: 3"></b>
-                  </div>
-                  <div class="viz-sage__out"><i></i><i></i><i></i></div>
-                </div>
+                <div class="win__viz" data-app="sage" aria-hidden="true"></div>
                 <div class="win__body">
                   <p class="win__idx mono">01 · AI / search</p>
                   <h3>SageSearch</h3>
                   <p>
-                    A search engine that reads the web for you. It pulls live sources through Tavily, writes up
-                    an answer with Gemini, and streams it to a Flutter client over WebSockets.
+                    Ask a question and a FastAPI backend searches the live web through Tavily, ranks the sources with sentence-transformers, and streams a cited Gemini answer over a WebSocket into a Flutter web client.
                   </p>
                   <ul class="win__stack mono"><li>Flutter</li><li>FastAPI</li><li>Gemini</li><li>Tavily</li><li>WebSocket</li></ul>
-                  <a class="win__link mono" href="https://github.com/AyushKr2003/sage_search" target="_blank" rel="noopener">source ↗</a>
+                  <div class="win__links">
+                    <button class="win__shots mono" data-gallery="sage" type="button">screens</button>
+                    <a class="win__link mono" href="https://github.com/AyushKr2003/sage_search" target="_blank" rel="noopener">source ↗</a>
+                  </div>
                 </div>
               </div>
             </article>
 
-            <article class="col" style="--w: 0.62" data-col>
+            <article class="col" style="--w: 0.68" data-col>
               <div class="win">
-                <div class="win__viz viz-niri" aria-hidden="true">
-                  <div class="viz-niri__bar"><i></i><i class="on"></i><i></i><i></i><span class="mono">12:04</span></div>
-                  <div class="viz-niri__track">
-                    <b style="--cw: 34%"></b><b style="--cw: 50%" class="f"></b><b style="--cw: 34%"></b><b style="--cw: 66%"></b><b style="--cw: 34%"></b>
-                  </div>
-                </div>
+                <div class="win__viz" data-app="niri" aria-hidden="true"></div>
                 <div class="win__body">
                   <p class="win__idx mono">02 · desktop shell · <span data-stars="niri-caelestia-shell">171</span>★</p>
                   <h3>niri-caelestia-shell</h3>
                   <p>
-                    A port of the Caelestia desktop shell to the niri compositor, covering bar, launcher,
-                    dashboard and notifications. It's my most-starred project, and people actually run it every day.
+                    My fork of the niri port of the Caelestia shell. I added a visual config editor, a battery monitor, a smarter workspace bar, CPU/GPU monitoring, niri IPC controls in the dashboard, and launcher modes for clipboard, OCR and Google Lens. It's archived now: I moved to Hyprland and built omacale.
                   </p>
                   <ul class="win__stack mono"><li>QML</li><li>Quickshell</li><li>niri IPC</li><li>Wayland</li></ul>
-                  <a class="win__link mono" href="https://github.com/AyushKr2003/niri-caelestia-shell" target="_blank" rel="noopener">source ↗</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="col" style="--w: 0.42" data-col>
-              <div class="win">
-                <div class="win__viz viz-chain" aria-hidden="true">
-                  <div class="viz-chain__row">
-                    <b class="mono">#0x3f<em>genesis</em></b><b class="mono">#0xa1<em>+1 vote</em></b><b class="mono">#0x7c<em>+1 vote</em></b><b class="mono">#0xe9<em>+1 vote</em></b><b class="mono">#0x2d<em>+1 vote</em></b>
+                  <div class="win__links">
+                    <button class="win__shots mono" data-gallery="niri" type="button">screens</button>
+                    <a class="win__link mono" href="https://github.com/AyushKr2003/niri-caelestia-shell" target="_blank" rel="noopener">source ↗</a>
                   </div>
                 </div>
+              </div>
+            </article>
+
+            <article class="col" style="--w: 0.6" data-col>
+              <div class="win">
+                <div class="win__viz" data-app="nexvote" aria-hidden="true"></div>
                 <div class="win__body">
-                  <p class="win__idx mono">03 · web3 · team</p>
+                  <p class="win__idx mono">03 · web3 · team project</p>
                   <h3>NexVote</h3>
                   <p>
-                    A voting platform where the ballot box is an Ethereum smart contract. I built the Flutter
-                    frontend, auth, and election management, wired to the chain for live, tamper-evident counts.
+                    A voting app where every ballot is an Ethereum transaction. Voters connect a MetaMask wallet, browse elections and vote. The Flutter web client calls castVote on a Solidity contract through web3dart and reads the results back from the chain. I built the Flutter app.
                   </p>
-                  <ul class="win__stack mono"><li>Flutter</li><li>Node.js</li><li>Solidity</li><li>Ethereum</li></ul>
-                  <a class="win__link mono" href="https://github.com/AyushKr2003/NexVote" target="_blank" rel="noopener">source ↗</a>
+                  <ul class="win__stack mono"><li>Flutter Web</li><li>web3dart</li><li>Solidity</li><li>Node.js</li></ul>
+                  <div class="win__links">
+                    <button class="win__shots mono" data-gallery="nexvote" type="button">screens</button>
+                    <a class="win__link mono" href="https://github.com/AyushKr2003/NexVote" target="_blank" rel="noopener">source ↗</a>
+                  </div>
                 </div>
               </div>
             </article>
 
-            <article class="col" style="--w: 0.5" data-col>
+            <article class="col" style="--w: 0.52" data-col>
               <div class="win">
-                <div class="win__viz viz-wave" aria-hidden="true">
-                  <div class="viz-wave__bars"></div>
-                  <div class="viz-wave__meta mono"><span>now playing</span><span>02:41 / 04:10</span></div>
-                </div>
+                <div class="win__viz" data-app="musixir" aria-hidden="true"></div>
                 <div class="win__body">
                   <p class="win__idx mono">04 · media</p>
                   <h3>Musixir</h3>
                   <p>
-                    A music streaming app with background playback and library management, backed by its own
-                    FastAPI service rather than a third-party backend.
+                    A music streaming app with background playback. Uploaders pick a thumbnail, an audio file and a colour, and that colour themes the player and the mini-player. It runs on my own FastAPI service with JWT auth, uploads and favourites.
                   </p>
-                  <ul class="win__stack mono"><li>Flutter</li><li>FastAPI</li><li>Python</li></ul>
-                  <a class="win__link mono" href="https://github.com/AyushKr2003/Musixir" target="_blank" rel="noopener">source ↗</a>
+                  <ul class="win__stack mono"><li>Flutter</li><li>Riverpod</li><li>just_audio</li><li>FastAPI</li></ul>
+                  <div class="win__links">
+                    <button class="win__shots mono" data-gallery="musixir" type="button">screens</button>
+                    <a class="win__link mono" href="https://github.com/AyushKr2003/Musixir" target="_blank" rel="noopener">source ↗</a>
+                  </div>
                 </div>
               </div>
             </article>
 
-            <article class="col" style="--w: 0.42" data-col>
+            <article class="col" style="--w: 0.6" data-col>
               <div class="win">
-                <div class="win__viz viz-route" aria-hidden="true">
-                  <svg viewBox="0 0 300 160" preserveAspectRatio="none">
-                    <path class="viz-route__path" d="M14 132 C 60 40, 92 150, 140 84 S 220 18, 286 40" />
-                    <circle cx="14" cy="132" r="4" /><circle cx="140" cy="84" r="4" /><circle cx="286" cy="40" r="4" />
-                  </svg>
-                </div>
+                <div class="win__viz" data-app="journeylog" aria-hidden="true"></div>
                 <div class="win__body">
                   <p class="win__idx mono">05 · full-stack</p>
                   <h3>JourneyLog</h3>
                   <p>
-                    A travel blog platform with separate admin and user roles. It has category filtering, the full
-                    write-edit-publish flow, and media uploads through Laravel storage.
+                    “Wonderful Journey”, a travel blog for Indonesian destinations. Guests browse stories by category; members sign in to write posts with photos and manage them; admins manage users. Server-rendered Laravel with Blade and Bootstrap on SQLite.
                   </p>
-                  <ul class="win__stack mono"><li>Laravel</li><li>PHP</li><li>SQLite</li></ul>
-                  <a class="win__link mono" href="https://github.com/AyushKr2003/JourneyLog" target="_blank" rel="noopener">source ↗</a>
+                  <ul class="win__stack mono"><li>Laravel 7</li><li>PHP</li><li>Blade</li><li>SQLite</li></ul>
+                  <div class="win__links">
+                    <button class="win__shots mono" data-gallery="journeylog" type="button">screens</button>
+                    <a class="win__link mono" href="https://github.com/AyushKr2003/JourneyLog" target="_blank" rel="noopener">source ↗</a>
+                  </div>
                 </div>
               </div>
             </article>
 
-            <article class="col" style="--w: 0.5" data-col>
+            <article class="col" style="--w: 0.68" data-col>
               <div class="win">
-                <div class="win__viz viz-omacale" aria-hidden="true">
-                  <div class="viz-omacale__ws"><b></b><b></b><b class="f"></b><b></b><b></b><b></b></div>
-                  <div class="viz-omacale__bar"><i></i><i></i><i></i></div>
-                </div>
+                <div class="win__viz" data-app="omacale" aria-hidden="true"></div>
                 <div class="win__body">
                   <p class="win__idx mono">06 · desktop shell · <span data-stars="omacale">46</span>★</p>
                   <h3>omacale</h3>
                   <p>
-                    The Caelestia look, rebuilt as a single plugin for the Omarchy shell bar. Its sibling,
-                    omarchy-overview, adds a workspace overview with live window previews.
+                    The Caelestia look, rebuilt as a single Omarchy bar plugin, with no extra daemon and no build step. A shader-drawn screen frame, with the dashboard, launcher, sidebar and OSD sliding out of it, and Material 3 colours generated from the Omarchy theme. omarchy-overview adds live workspace previews.
                   </p>
-                  <ul class="win__stack mono"><li>QML</li><li>Omarchy</li><li>Hyprland</li></ul>
-                  <a class="win__link mono" href="https://github.com/AyushKr2003/omacale" target="_blank" rel="noopener">source ↗</a>
+                  <ul class="win__stack mono"><li>QML</li><li>Omarchy</li><li>Hyprland</li><li>GLSL</li></ul>
+                  <div class="win__links">
+                    <button class="win__shots mono" data-gallery="omacale" type="button">screens</button>
+                    <a class="win__link mono" href="https://github.com/AyushKr2003/omacale" target="_blank" rel="noopener">source ↗</a>
+                  </div>
                 </div>
               </div>
             </article>
