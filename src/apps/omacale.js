@@ -2,7 +2,7 @@ import { gsap, $, $$, ms } from "./core.js";
 import { calendarHTML, clockParts } from "./niri.js";
 import { createBlobRenderer, blobRadii, BlobDeform, hexToVec4 } from "./caelestia/blob.js";
 import { EASE, DUR } from "./caelestia/motion.js";
-import { shapeSVG, shapePath, wavyArc } from "./caelestia/shapes.js";
+import { shapeSVG, shapePath, wavyArc, morph } from "./caelestia/shapes.js";
 
 /*
   Omacale = Caelestia v2 (Material 3 Expressive), on Omarchy.
@@ -39,8 +39,8 @@ const PANEL_R = 28;
 
 // colour roles; "bridge" is sampled from the live desktop (Omarchy's Catppuccin Mocha)
 const SCHEMES = {
-  bridge: { sf: "#1e1e2e", sfcl: "#232436", sfc: "#2a2b3c", sfch: "#313244", sfchh: "#45475a", on: "#cdd6f4", onv: "#a6adc8", pr: "#89b4fa", onpr: "#11111b", prc: "#a8c3f7", onprc: "#11111b", tert: "#cba6f7", err: "#f38ba8", outl: "#6c7086", outv: "#3a3b4f" },
-  eyes: { sf: "#17130c", sfcl: "#1c1811", sfc: "#241f17", sfch: "#2f2921", sfchh: "#3a342b", on: "#ece1d4", onv: "#d3c4b4", pr: "#f6bd5c", onpr: "#422c00", prc: "#ffdea8", onprc: "#2a1a00", tert: "#b6cf8e", err: "#ffb4ab", outl: "#9c8f80", outv: "#4f4539" },
+  bridge: { sf: "#1e1e2e", sfcl: "#232436", sfc: "#2a2b3c", sfch: "#313244", sfchh: "#45475a", on: "#cdd6f4", onv: "#a6adc8", pr: "#89b4fa", sec: "#a6c1f4", onpr: "#11111b", prc: "#a8c3f7", onprc: "#11111b", tert: "#cba6f7", err: "#f38ba8", outl: "#6c7086", outv: "#3a3b4f" },
+  eyes: { sf: "#17130c", sfcl: "#1c1811", sfc: "#241f17", sfch: "#2f2921", sfchh: "#3a342b", on: "#ece1d4", onv: "#d3c4b4", pr: "#f6bd5c", sec: "#dcc3a1", onpr: "#422c00", prc: "#ffdea8", onprc: "#2a1a00", tert: "#b6cf8e", err: "#ffb4ab", outl: "#9c8f80", outv: "#4f4539" },
 };
 const WALLS = ["bridge", "eyes"];
 const WALL_NAMES = { bridge: "catppuccin-wallpaper3.png", eyes: "eyes.png" };
@@ -73,6 +73,13 @@ const APPS = [
   ["cliamp", "cliamp", "A retro terminal music player inspired by Winamp 2.x"],
   ["neovim", "Neovim", "Edit text files"],
 ];
+
+/* bar/workspaces/Workspaces.qml: five shown, an icon per window under each
+   occupied one (Sys.appIcon: by .desktop category). Empty = a small circle, occupied = a square at 1/3, the
+   focused one morphs to a random shape from focusedShapes at 2/3 */
+const WS_APPS = ["terminal", "web", "web", "folder", ""];
+const WS_TITLES = ["omarchy:portfolio", "omacale — Zen Browser", "Chromium", "Files", "Desktop"];
+const FOCUSED_SHAPES = ["cookie4", "cookie6", "cookie9", "cookie12", "sunny", "softBurst", "gem", "diamond"];
 
 // a ring gauge arc, sweep 0..1 of `deg` degrees, opening at the bottom
 const ring = (v, r = 42, deg = 300) => {
@@ -111,6 +118,7 @@ export default {
         <div class="ov-dclock__d"><b>${month.toUpperCase()}</b><strong>${day}</strong><span>${weekday}</span></div>
       </div>
       <canvas class="ov-blob" data-blob></canvas>
+      <div class="ov-frame"></div>
 
       <div class="ov-area">
         <section class="ov-panel ov-dash" data-p="dash">
@@ -217,12 +225,11 @@ export default {
         ${OMARCHY_LOGO}
         <div class="ov-ws" data-ws>
           <b class="ov-wsind" data-wsind></b>
-          ${["terminal", "web_asset", "web_asset", "", ""].map((ic) => `<span class="${ic ? "occ" : ""}"><i></i>${ic ? ms(ic) : ""}</span>`).join("")}
+          ${WS_APPS.map((ic) => `<span class="${ic ? "occ" : ""}"><svg viewBox="0 0 100 100" class="m3s"><path data-shape d="${shapePath(ic ? "square" : "circle")}"/></svg>${ic ? ms(ic) : ""}</span>`).join("")}
         </div>
-        <div class="ov-title">${ms("desktop_windows")}<span data-title>Desktop</span></div>
+        <div class="ov-title">${ms("terminal")}<span data-title>omarchy:portfolio</span></div>
         <div class="ov-bar__low">
-          ${ms("calendar_month")}
-          <div class="ov-vclock"><span data-h>${c.h}</span><span data-m>${c.m}</span><span>${c.ap.toLowerCase()}</span></div>
+          <div class="ov-vclock">${ms("calendar_month")}<span data-h>${c.h}</span><span data-m>${c.m}</span><small>${c.ap.toLowerCase()}</small></div>
           <div class="ov-status">${["coffee", "volume_up", "wifi", "bluetooth", "headphones", "battery_charging_full"].map((n) => ms(n, "fill")).join("")}</div>
           ${ms("power_settings_new", "ov-power")}
         </div>
@@ -239,6 +246,11 @@ export default {
       console.warn("blob shader unavailable", e);
     }
     if (!renderer) stage.classList.add("ov-noGL");
+    // a lost context (GPU reset, too many contexts) falls back to the CSS frame
+    canvas.addEventListener("webglcontextlost", () => {
+      renderer = null;
+      stage.classList.add("ov-noGL");
+    });
 
     const P = Object.fromEntries($$(stage, "[data-p]").map((el) => [el.dataset.p, el]));
     // drawer state: offsets (1 = hidden) and sizes, all tweened. Sizes are
@@ -400,6 +412,7 @@ export default {
     const pp = $(stage, "[data-pp]");
     const wsInd = $(stage, "[data-wsind]");
     const wsSlots = $$(stage, "[data-ws] > span");
+    const title = $(stage, "[data-title]");
     const newN = $(stage, "[data-newn]");
     const nCount = $(stage, "[data-ncount]");
     let wallIdx = 0;
@@ -425,10 +438,43 @@ export default {
       lq.textContent = txt;
       lph.style.opacity = txt ? 0 : 1;
     };
-    // the active workspace pill (bar/workspaces/ActiveIndicator.qml) slides on fastSpatial
-    const ws = (i) => {
+    /* the active workspace pill (bar/workspaces/ActiveIndicator.qml): its
+       leading edge runs on defaultSpatial and the trailing edge follows 1.5x
+       slower, so it stretches between workspaces before settling */
+    const wsShape = wsSlots.map((s) => $(s, "[data-shape]"));
+    const wsIcon = $(stage, ".ov-title .ms");
+    const pill = { a: 0, b: 0 };
+    const drawPill = () => gsap.set(wsInd, { y: pill.a, height: pill.b - pill.a });
+    let wsCur = -1;
+    const shapeTo = (i, name) => {
+      const el = wsShape[i];
+      const from = el.dataset.n || (WS_APPS[i] ? "square" : "circle");
+      el.dataset.n = name;
+      const m = { t: 0 };
+      gsap.to(m, { t: 1, duration: DUR.spatial, ease: EASE.spatial, onUpdate: () => el.setAttribute("d", morph(from, name, Math.min(1, m.t))) });
+    };
+    const ws = (i, instant) => {
+      if (i === wsCur) return;
+      const prev = wsCur;
+      wsCur = i;
       wsSlots.forEach((s, j) => s.classList.toggle("on", j === i));
-      gsap.to(wsInd, { y: wsSlots[i].offsetTop, height: wsSlots[i].offsetHeight, duration: DUR.fastSpatial, ease: EASE.fastSpatial });
+      if (prev >= 0) shapeTo(prev, WS_APPS[prev] ? "square" : "circle");
+      shapeTo(i, FOCUSED_SHAPES[Math.floor(Math.random() * FOCUSED_SHAPES.length)]);
+      const top = wsSlots[i].offsetTop;
+      const bot = top + wsSlots[i].offsetHeight;
+      if (instant) {
+        Object.assign(pill, { a: top, b: bot });
+        drawPill();
+      } else {
+        const up = top < pill.a;
+        const lead = DUR.spatial;
+        gsap.to(pill, { a: top, duration: up ? lead : lead * 1.5, ease: EASE.spatial, onUpdate: drawPill });
+        gsap.to(pill, { b: bot, duration: up ? lead * 1.5 : lead, ease: EASE.spatial, onUpdate: drawPill });
+      }
+      // ActiveWindow: the title cross-fades to the focused window's
+      title.textContent = WS_TITLES[i];
+      wsIcon.textContent = WS_APPS[i] || "desktop_windows";
+      if (!instant) gsap.fromTo([title, wsIcon], { opacity: 0 }, { opacity: 1, duration: DUR.normal, ease: EASE.standard });
     };
 
     const tl = gsap.timeline({ repeat: -1 });
@@ -443,7 +489,7 @@ export default {
       sw.classList.add("on");
       newN.style.display = "none";
       nCount.textContent = "2 notifications";
-      ws(1);
+      ws(0, true);
     }, null, 0.001);
 
     // 1 · volume key: OSD slides out of the right frame edge
@@ -459,9 +505,9 @@ export default {
     tl.fromTo($$(stage, "[data-tbar]"), { "--v": 0.3 }, { "--v": (i) => [0.72, 0.58][i], duration: 0.8, ease: EASE.standard }, 6.5);
     tl.to(S, { dOff: 1, ...sp }, 8.6);
 
-    // 3 · SUPER+3: the workspace pill moves; a notification lands, the
+    // 3 · SUPER+2: the workspace pill moves; a notification lands, the
     //     sidebar opens and pushes the session menu inward (ScreenScope sShift)
-    tl.call(() => ws(2), null, 8.9);
+    tl.call(() => ws(1), null, 8.9);
     tl.to(S, { sOff: 0, ...sp }, 9.3);
     tl.call(() => {
       newN.style.display = "";
@@ -473,7 +519,7 @@ export default {
     tl.call(() => sw.classList.toggle("on"), null, 11.6);
     tl.to(S, { sOff: 1, ...sp }, 12.2);
     tl.to(S, { sbOff: 1, ...sp }, 12.5);
-    tl.call(() => ws(1), null, 12.7);
+    tl.call(() => ws(0), null, 12.7);
 
     // 4 · launcher → ">wallpaper" → pick → the scheme regenerates
     tl.to(S, { lOff: 0, ...sp }, 13.0);
