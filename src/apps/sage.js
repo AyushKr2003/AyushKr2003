@@ -38,7 +38,7 @@ export default {
   build(stage) {
     stage.innerHTML = `
       <header class="sg-top">
-        <div class="sg-logo"><span><img src="/work/sage-icon.webp" alt="" /></span>SageSearch</div>
+        <div class="sg-logo"><span><img src="work/sage-icon.webp" alt="" /></span>SageSearch</div>
         <div class="sg-top__r"><button class="sg-sq">${mi("tune")}</button><button class="sg-av">${mi("person", "fill")}</button></div>
       </header>
       <aside class="sg-side">

@@ -58,7 +58,7 @@ export function initGallery(ctx) {
   function show(n) {
     i = (n + set.length) % set.length;
     const [file, label] = set[i];
-    img.src = `/work/shots/${file}.webp`;
+    img.src = `work/shots/${file}.webp`;
     img.alt = label;
     cap.textContent = label;
     count.textContent = `${String(i + 1).padStart(2, "0")} / ${String(set.length).padStart(2, "0")}`;

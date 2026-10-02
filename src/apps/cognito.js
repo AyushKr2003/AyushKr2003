@@ -50,7 +50,7 @@ export default {
       <div class="cg-status"><span data-clock>9:41</span><span class="cg-sig">▾◢▮</span></div>
       <header class="cg-bar">${mi("menu")}<h1 data-title>CognitoAI</h1><i></i></header>
       <main class="cg-body">
-        <div class="cg-avatar" data-avatar><span></span><img src="/work/cognito-assistant.webp" alt="" /></div>
+        <div class="cg-avatar" data-avatar><span></span><img src="work/cognito-assistant.webp" alt="" /></div>
         <div class="cg-bubble" data-bubble><p data-say>Good Morning, what task can I do for you?</p></div>
         <figure class="cg-image" data-image>${PAINTING}</figure>
         <div data-cmds>

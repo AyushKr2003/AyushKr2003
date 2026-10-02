@@ -111,7 +111,7 @@ export default {
     const day = String(now.getDate()).padStart(2, "0");
 
     stage.innerHTML = `
-      <div class="ov-walls"><img data-wall="a" src="/work/wall-bridge.webp" alt="" /><img data-wall="b" alt="" /></div>
+      <div class="ov-walls"><img data-wall="a" src="work/wall-bridge.webp" alt="" /><img data-wall="b" alt="" /></div>
       <canvas class="ov-vis" data-vis width="${AW}" height="300"></canvas>
       <div class="ov-dclock">
         <div class="ov-dclock__t"><b data-dh>${c.h}</b><i><s></s><s></s></i><b data-dm>${c.m}</b><sup data-dap>${c.ap}</sup></div>
@@ -138,7 +138,7 @@ export default {
                 <div class="ov-cover"><svg viewBox="0 0 100 100" class="wave"><path data-wave d=""/></svg>${shapeSVG("cookie9", "cookie")}${ms("imagesmode")}</div>
                 <b>Midnight City</b><small>Hurry Up, We're Dreaming</small><em>M83</em>
                 <div class="ov-ctrl"><span>${ms("skip_previous", "fill")}</span><span class="pp" data-pp>${ms("pause", "fill")}</span><span>${ms("skip_next", "fill")}</span></div>
-                <img src="/work/bongocat.gif" alt="" class="ov-bongo" />
+                <img src="work/bongocat.gif" alt="" class="ov-bongo" />
               </div>
               <div class="ov-card ov-clock"><b data-ch>${c.h}</b><i>•••</i><b data-cm>${c.m}</b><i>•••</i><b data-cs>${c.s}</b><b class="ap">${c.ap}</b></div>
               <div class="ov-card ov-cal">${calendarHTML(`<svg viewBox="0 0 100 100" class="sun"><path d="${shapePath("sunny")}"/></svg>`)}</div>
@@ -193,12 +193,12 @@ export default {
 
         <section class="ov-panel ov-launch" data-p="launch">
           <ul class="ov-apps" data-apps>${APPS.map(([k, n, d], i) => `<li class="${i === 0 ? "on" : ""}"><span class="ico">${ICON[k]}</span><div><b>${n}</b><small>${d}</small></div></li>`).join("")}</ul>
-          <div class="ov-walllist" data-walllist>${WALLS.map((w) => `<figure data-w="${w}"><img src="/work/thumb-${w}.webp" alt="" /><figcaption>${WALL_NAMES[w]}</figcaption></figure>`).join("")}</div>
+          <div class="ov-walllist" data-walllist>${WALLS.map((w) => `<figure data-w="${w}"><img src="work/thumb-${w}.webp" alt="" /><figcaption>${WALL_NAMES[w]}</figcaption></figure>`).join("")}</div>
           <div class="ov-search">${ms("search")}<span data-lq></span><span class="ph" data-lph>Type "&gt;" for commands, ":" for the Omarchy menu</span></div>
         </section>
 
         <section class="ov-panel ov-session" data-p="session">
-          <span class="on">${ms("logout")}</span><span>${ms("power_settings_new")}</span><img src="/work/kurukuru.gif" alt="" /><span>${ms("downloading")}</span><span>${ms("cached")}</span>
+          <span class="on">${ms("logout")}</span><span>${ms("power_settings_new")}</span><img src="work/kurukuru.gif" alt="" /><span>${ms("downloading")}</span><span>${ms("cached")}</span>
         </section>
 
         <section class="ov-panel ov-osd" data-p="osd">
@@ -539,7 +539,7 @@ export default {
       wallIdx = (wallIdx + 1) % WALLS.length;
       const w = WALLS[wallIdx];
       // crossfade the wallpaper and tween every colour role to the new scheme
-      wallB.src = `/work/wall-${w}.webp`;
+      wallB.src = `work/wall-${w}.webp`;
       gsap.fromTo(wallB, { opacity: 0 }, {
         opacity: 1, duration: 0.8, ease: "power1.inOut",
         onComplete: () => { wallA.src = wallB.src; gsap.set(wallB, { opacity: 0 }); },

@@ -23,8 +23,8 @@ const SONGS = [
   { name: "song sample 4", artist: "ayush", color: "#2e9fb0", hue: 188 },
   { name: "SongTest", artist: "Artist123", color: "#9a3b58", hue: 342 },
 ];
-const ART = "/work/musixir-art.webp";
-const ic = (n, cls = "") => `<img class="mx-ic ${cls}" src="/work/mx-${n}.png" alt="" />`;
+const ART = "work/musixir-art.webp";
+const ic = (n, cls = "") => `<img class="mx-ic ${cls}" src="work/mx-${n}.png" alt="" />`;
 
 export default {
   id: "musixir",

@@ -103,7 +103,7 @@ export default {
   build(stage) {
     const c = clockParts();
     stage.innerHTML = `
-      <img class="cl-wall" src="/work/wall-island.webp" alt="" />
+      <img class="cl-wall" src="work/wall-island.webp" alt="" />
       <div class="cl-dclock" data-dclock>${c.h}:${c.m}:${c.s} ${c.ap}</div>
       <svg class="v1-surface" viewBox="0 0 ${W} ${H}" aria-hidden="true">
         <path class="frame" fill-rule="evenodd" d="${FRAME}"/>
@@ -135,7 +135,7 @@ export default {
               <div class="cl-cover"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" class="trk"/><circle cx="50" cy="50" r="46" class="prg" data-arc/></svg>${ms("image")}</div>
               <b>The K2 Episode 13 | …</b><small>Unknown album</small><em>Unknown artist</em>
               <div class="cl-ctrl">${ms("skip_previous", "fill")}${ms("play_arrow", "fill")}${ms("skip_next", "fill")}</div>
-              <img src="/work/bongocat.gif" alt="" class="cl-bongo" />
+              <img src="work/bongocat.gif" alt="" class="cl-bongo" />
             </div>
             <div class="cl-card cl-clock"><b data-ch>${c.h}</b><i>•••</i><b data-cm>${c.m}</b><b class="ap" data-cap>${c.ap}</b></div>
             <div class="cl-card cl-cal">${calendarHTML()}</div>

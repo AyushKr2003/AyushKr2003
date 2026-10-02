@@ -92,7 +92,7 @@ const COMMANDS = {
       row("codolio", `<a href="https://codolio.com/profile/shadowMonarch" target="_blank" rel="noopener">shadowMonarch</a>`),
     ].join("\n"),
   resume: () => {
-    open("/Ayush_Kumar_Singh_Resume.pdf", "_blank", "noopener");
+    open("Ayush_Kumar_Singh_Resume.pdf", "_blank", "noopener");
     return "opening resume.pdf ↗";
   },
   ls: () => "about.txt  projects/  resume.pdf  .config/",
