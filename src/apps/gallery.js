@@ -28,14 +28,11 @@ const SETS = {
     ["mx-login_screen", "Sign in"],
     ["mx-splash_screen", "Splash"],
   ],
-  journeylog: [
-    ["jl-home", "Home: every story, by category"],
-    ["jl-create", "New Blog (member)"],
-    ["jl-blog", "Article List with delete"],
-    ["jl-article", "Story page"],
-  ],
   omacale: [
     ["omacale-preview", "Omacale: frame, dashboard, launcher, sidebar, OSD"],
+    ["omacale-perf", "Dashboard › Performance, on my laptop"],
+    ["omacale-launcher", "Launcher over the desktop clock and cava visualiser"],
+    ["omacale-session", "Session menu"],
     ["omarchy-overview", "omarchy-overview: workspace overview with live previews"],
   ],
 };

@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body>
-    <a class="skip" href="#windows">Skip to work</a>
+    <a class="skip" href="#work">Skip to work</a>
 
     <!-- boot: a two-beat loader, no percentage counter -->
     <div class="boot" aria-hidden="true">
@@ -37,7 +37,7 @@
       <nav class="bar__ws" aria-label="Sections">
         <a href="#surface" data-ws="0"><span>1</span><em>surface</em></a>
         <a href="#layers" data-ws="1"><span>2</span><em>layers</em></a>
-        <a href="#windows" data-ws="2"><span>3</span><em>windows</em></a>
+        <a href="#work" data-ws="2"><span>3</span><em>work</em></a>
         <a href="#signal" data-ws="3"><span>4</span><em>signal</em></a>
         <a href="#history" data-ws="4"><span>5</span><em>history</em></a>
         <a href="#shell" data-ws="5"><span>6</span><em>shell</em></a>
@@ -165,142 +165,214 @@ rank  gemini+tavily    <b>12ms</b></pre>
         </div>
       </section>
 
-      <!-- 3 · WINDOWS (niri-style scrollable tiling) ------------------ -->
-      <section class="windows" id="windows" data-theme="ink">
-        <div class="windows__pin">
-          <header class="windows__head">
-            <p class="eyebrow mono">03 / selected work</p>
-            <h2 class="kinetic">Windows</h2>
-            <p class="windows__hint mono">
-              laid out like niri, scrollable tiling<span class="hide-sm"> · ← → or scroll</span>
-            </p>
-          </header>
+      <!-- 3 · WORK: each project on the platform it was built for ----- -->
+      <section class="work" id="work" data-theme="ink">
+        <header class="work__head">
+          <p class="eyebrow mono">03 / selected work</p>
+          <h2 class="kinetic">Work</h2>
+          <p class="work__lede">
+            Every project below is running, rebuilt for the browser and shown on the hardware it was made for.
+            The desktop shells boot on a Linux desktop. The Flutter apps start on a phone and turn into a browser tab.
+          </p>
+          <ol class="work__index mono">
+            <li><b>linux</b><span>niri-caelestia-shell · omacale</span></li>
+            <li><b>flutter</b><span>Musixir · CognitoAI · SageSearch · NexVote</span></li>
+          </ol>
+        </header>
 
-          <div class="strip" data-strip>
-            <!-- each column = one project window -->
-            <article class="col" style="--w: 0.62" data-col>
-              <div class="win">
-                <div class="win__viz" data-app="sage" aria-hidden="true"></div>
-                <div class="win__body">
-                  <p class="win__idx mono">01 · AI / search</p>
-                  <h3>SageSearch</h3>
-                  <p>
-                    Ask a question and a FastAPI backend searches the live web through Tavily, ranks the sources with sentence-transformers, and streams a cited Gemini answer over a WebSocket into a Flutter web client.
-                  </p>
-                  <ul class="win__stack mono"><li>Flutter</li><li>FastAPI</li><li>Gemini</li><li>Tavily</li><li>WebSocket</li></ul>
-                  <div class="win__links">
-                    <button class="win__shots mono" data-gallery="sage" type="button">screens</button>
-                    <a class="win__link mono" href="https://github.com/AyushKr2003/sage_search" target="_blank" rel="noopener">source ↗</a>
+        <!-- 3a · LINUX: two outputs, a compositor and a terminal ------ -->
+        <div class="desk" data-desk>
+          <div class="desk__pin">
+            <div class="desk__top mono">
+              <span><b>03.1</b> linux · wayland</span>
+              <span class="hide-sm">scroll or ← → to switch</span>
+            </div>
+
+            <div class="desk__rig">
+              <figure class="out out--main">
+                <div class="out__screen" data-screen>
+                  <div class="ws" data-pane data-wm="niri"><div class="ws__viz" data-app="niri" aria-hidden="true"></div></div>
+                  <div class="ws" data-pane data-wm="Hyprland · Omarchy"><div class="ws__viz" data-app="omacale" aria-hidden="true"></div></div>
+                  <div class="tty mono" data-tty aria-hidden="true"><pre data-tty-log></pre></div>
+                </div>
+                <figcaption class="out__cap mono"><b>DP-1</b><span>2560×1280</span><span data-wm-cap>niri</span></figcaption>
+              </figure>
+
+              <figure class="out out--side">
+                <div class="out__screen kitty">
+                  <div class="kitty__title mono"><span data-kitty-title>~/src</span><span>kitty</span></div>
+                  <div class="kitty__body mono" data-kitty>
+                    <div class="kt" data-kt>
+                      <p class="c"><i>~/src ❯</i> <span>cd niri-caelestia-shell; fastfetch</span></p>
+                      <div class="ff" style="--c: #fbb1d8">
+                        <span class="ff__logo" data-logo></span>
+                        <dl>
+                          <dt>AyushKr2003<em>@</em>github</dt>
+                          <div><dt>repo</dt><dd>niri-caelestia-shell</dd></div>
+                          <div><dt>base</dt><dd>Caelestia v1, via jutraim's niri port</dd></div>
+                          <div><dt>wm</dt><dd>niri (scrollable tiling)</dd></div>
+                          <div><dt>lang</dt><dd>QML · Quickshell · niri IPC</dd></div>
+                          <div><dt>stars</dt><dd><span data-stars="niri-caelestia-shell">171</span> ★ · <span data-forks="niri-caelestia-shell">17</span> forks</dd></div>
+                          <div><dt>state</dt><dd>archived · GPL-3.0</dd></div>
+                          <div class="ff__pal"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                        </dl>
+                      </div>
+                      <p class="c"><i>~/s/niri-caelestia-shell ❯</i> <span>cat ABOUT</span></p>
+                      <p class="o">
+                        A port of the original Caelestia shell (v1, built for Hyprland) to the niri compositor. I added a visual config
+                        editor, a battery monitor, a smarter workspace bar, CPU/GPU monitoring, niri IPC controls and launcher modes for
+                        clipboard, OCR and Google Lens. Drawers grow out of the frame exactly as they do in v1. Archived since I moved to Hyprland.
+                      </p>
+                      <p class="c"><i>~/s/niri-caelestia-shell ❯</i> <span>git log --oneline -3</span></p>
+                      <p class="o g"><b>68c0298</b> Archive repository and update README content</p>
+                      <p class="o g"><b>f801a2d</b> refactor: simplify variant selection logic</p>
+                      <p class="o g"><b>e5d080f</b> feat: add icon substitution logic for tray icons</p>
+                    </div>
+
+                    <div class="kt" data-kt>
+                      <p class="c"><i>~/s/niri-caelestia-shell ❯</i> <span>cd ../omacale; fastfetch</span></p>
+                      <div class="ff" style="--c: #89b4fa">
+                        <span class="ff__logo" data-logo></span>
+                        <dl>
+                          <dt>AyushKr2003<em>@</em>github</dt>
+                          <div><dt>repo</dt><dd>omacale</dd></div>
+                          <div><dt>base</dt><dd>Caelestia v2, Material 3 Expressive</dd></div>
+                          <div><dt>wm</dt><dd>Hyprland · one Omarchy bar plugin</dd></div>
+                          <div><dt>lang</dt><dd>QML · GLSL</dd></div>
+                          <div><dt>stars</dt><dd><span data-stars="omacale">46</span> ★ · v0.44.0</dd></div>
+                          <div><dt>state</dt><dd>active · GPL-3.0</dd></div>
+                          <div class="ff__pal"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                        </dl>
+                      </div>
+                      <p class="c"><i>~/s/omacale ❯</i> <span>cat ABOUT</span></p>
+                      <p class="o">
+                        The current Caelestia (v2) ported 1:1 to Omarchy as one bar plugin, with no extra daemon and no build step. Its SDF
+                        shader merges the frame and every drawer into one gooey surface that stretches on a spring as it moves, and the
+                        Material 3 colours regenerate from the wallpaper. The screen on the left runs a WebGL port of that shader.
+                      </p>
+                      <p class="c"><i>~/s/omacale ❯</i> <span>git log --oneline -3</span></p>
+                      <p class="o g"><b>2ceba82</b> feat: Caelestia's OSD and toasts for every Omarchy OSD (0.44.0)</p>
+                      <p class="o g"><b>49dd09a</b> fix: address the 0.43.5 security review (issue #4)</p>
+                      <p class="o g"><b>90350a6</b> fix: load notification images from local files only</p>
+                    </div>
+
+                  </div>
+                  <div class="kitty__foot mono">
+                    <span class="kitty__tab">1 fish</span>
+                    <div class="kitty__acts" data-acts>
+                      <span><button class="act" data-gallery="niri" type="button">screens</button><a class="act" href="https://github.com/AyushKr2003/niri-caelestia-shell" target="_blank" rel="noopener">source ↗</a></span>
+                      <span><button class="act" data-gallery="omacale" type="button">screens</button><a class="act" href="https://github.com/AyushKr2003/omacale" target="_blank" rel="noopener">source ↗</a></span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </article>
+                <figcaption class="out__cap mono"><b>DP-2</b><span>1080×1920 · rotated</span><span>kitty · fish</span></figcaption>
+              </figure>
+            </div>
 
-            <article class="col" style="--w: 0.68" data-col>
-              <div class="win">
-                <div class="win__viz" data-app="niri" aria-hidden="true"></div>
-                <div class="win__body">
-                  <p class="win__idx mono">02 · Caelestia v1 → niri · <span data-stars="niri-caelestia-shell">171</span>★</p>
-                  <h3>niri-caelestia-shell</h3>
-                  <p>
-                    A port of the original Caelestia shell (v1, built for Hyprland) to the niri compositor, building on jutraim's port. I added a visual config editor, a battery monitor, a smarter workspace bar, CPU/GPU monitoring, niri IPC controls and launcher modes for clipboard, OCR and Google Lens. Drawers grow out of the frame exactly as they do in v1. Archived since I moved to Hyprland.
-                  </p>
-                  <ul class="win__stack mono"><li>QML</li><li>Quickshell</li><li>niri IPC</li><li>Wayland</li></ul>
-                  <div class="win__links">
-                    <button class="win__shots mono" data-gallery="niri" type="button">screens</button>
-                    <a class="win__link mono" href="https://github.com/AyushKr2003/niri-caelestia-shell" target="_blank" rel="noopener">source ↗</a>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="col" style="--w: 0.6" data-col>
-              <div class="win">
-                <div class="win__viz" data-app="nexvote" aria-hidden="true"></div>
-                <div class="win__body">
-                  <p class="win__idx mono">03 · web3 · team project</p>
-                  <h3>NexVote</h3>
-                  <p>
-                    A voting app where every ballot is an Ethereum transaction. Voters connect a MetaMask wallet, browse elections and vote. The Flutter web client calls castVote on a Solidity contract through web3dart and reads the results back from the chain. I built the Flutter app.
-                  </p>
-                  <ul class="win__stack mono"><li>Flutter Web</li><li>web3dart</li><li>Solidity</li><li>Node.js</li></ul>
-                  <div class="win__links">
-                    <button class="win__shots mono" data-gallery="nexvote" type="button">screens</button>
-                    <a class="win__link mono" href="https://github.com/AyushKr2003/NexVote" target="_blank" rel="noopener">source ↗</a>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="col" style="--w: 0.52" data-col>
-              <div class="win">
-                <div class="win__viz" data-app="musixir" aria-hidden="true"></div>
-                <div class="win__body">
-                  <p class="win__idx mono">04 · media</p>
-                  <h3>Musixir</h3>
-                  <p>
-                    A music streaming app with background playback. Uploaders pick a thumbnail, an audio file and a colour, and that colour themes the player and the mini-player. It runs on my own FastAPI service with JWT auth, uploads and favourites.
-                  </p>
-                  <ul class="win__stack mono"><li>Flutter</li><li>Riverpod</li><li>just_audio</li><li>FastAPI</li></ul>
-                  <div class="win__links">
-                    <button class="win__shots mono" data-gallery="musixir" type="button">screens</button>
-                    <a class="win__link mono" href="https://github.com/AyushKr2003/Musixir" target="_blank" rel="noopener">source ↗</a>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="col" style="--w: 0.6" data-col>
-              <div class="win">
-                <div class="win__viz" data-app="journeylog" aria-hidden="true"></div>
-                <div class="win__body">
-                  <p class="win__idx mono">05 · full-stack</p>
-                  <h3>JourneyLog</h3>
-                  <p>
-                    “Wonderful Journey”, a travel blog for Indonesian destinations. Guests browse stories by category; members sign in to write posts with photos and manage them; admins manage users. Server-rendered Laravel with Blade and Bootstrap on SQLite.
-                  </p>
-                  <ul class="win__stack mono"><li>Laravel 7</li><li>PHP</li><li>Blade</li><li>SQLite</li></ul>
-                  <div class="win__links">
-                    <button class="win__shots mono" data-gallery="journeylog" type="button">screens</button>
-                    <a class="win__link mono" href="https://github.com/AyushKr2003/JourneyLog" target="_blank" rel="noopener">source ↗</a>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="col" style="--w: 0.68" data-col>
-              <div class="win">
-                <div class="win__viz" data-app="omacale" aria-hidden="true"></div>
-                <div class="win__body">
-                  <p class="win__idx mono">06 · Caelestia v2 → Omarchy · <span data-stars="omacale">46</span>★</p>
-                  <h3>omacale</h3>
-                  <p>
-                    The current Caelestia (v2, Material 3 Expressive) ported 1:1 to Omarchy as one bar plugin, with no extra daemon and no build step. Its SDF shader merges the frame and every drawer into one gooey surface that stretches on a spring as it moves, and the Material 3 colours regenerate from the wallpaper. The surface here runs a WebGL port of that shader.
-                  </p>
-                  <ul class="win__stack mono"><li>QML</li><li>Omarchy</li><li>Hyprland</li><li>GLSL</li></ul>
-                  <div class="win__links">
-                    <button class="win__shots mono" data-gallery="omacale" type="button">screens</button>
-                    <a class="win__link mono" href="https://github.com/AyushKr2003/omacale" target="_blank" rel="noopener">source ↗</a>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="col col--more" style="--w: 0.34" data-col>
-              <a class="win win--more" href="https://github.com/AyushKr2003?tab=repositories" target="_blank" rel="noopener">
-                <span class="mono">$ ls ~/repos | wc -l</span>
-                <strong data-repos>38</strong>
-                <span class="mono">more on GitHub ↗</span>
-              </a>
-            </article>
-          </div>
-
-          <!-- niri-style overview minimap -->
-          <div class="minimap" aria-hidden="true">
-            <div class="minimap__track" data-minimap></div>
-            <div class="minimap__view" data-minimap-view></div>
+            <nav class="desk__ws mono" aria-label="Linux projects">
+              <button type="button" data-go="0"><span>1</span>niri-caelestia-shell</button>
+              <button type="button" data-go="1"><span>2</span>omacale</button>
+            </nav>
           </div>
         </div>
+
+        <!-- 3b · FLUTTER: one device that changes shape --------------- -->
+        <div class="dev" data-dev>
+          <div class="dev__pin">
+            <div class="dev__copy">
+              <p class="dev__top mono"><b>03.2</b> flutter · one codebase</p>
+              <p class="dev__cmd mono"><span>$ flutter run -d</span> <b data-target>android</b></p>
+
+              <div class="dev__items">
+                <article class="dev__item" data-item>
+                  <p class="dev__meta mono">01 · media · android</p>
+                  <h3>Musixir</h3>
+                  <p>
+                    A music streaming app with background playback. Uploaders pick a thumbnail, an audio file and a colour, and that colour
+                    themes the player and the mini-player. It runs on my own FastAPI service with JWT auth, uploads and favourites.
+                  </p>
+                  <ul class="dev__stack mono"><li>Flutter</li><li>Riverpod</li><li>just_audio</li><li>FastAPI</li></ul>
+                  <div class="dev__links mono">
+                    <button class="act" data-gallery="musixir" type="button">screens</button>
+                    <a class="act" href="https://github.com/AyushKr2003/Musixir" target="_blank" rel="noopener">source ↗</a>
+                  </div>
+                </article>
+                <article class="dev__item" data-item>
+                  <p class="dev__meta mono">02 · voice assistant · android + ios</p>
+                  <h3>CognitoAI</h3>
+                  <p>
+                    A voice assistant. Tap the mic and talk: speech_to_text writes it down, then GPT-3.5 decides whether you asked for a
+                    picture. Questions go to ChatGPT and the answer is read back with flutter_tts. Picture requests go to DALL·E.
+                  </p>
+                  <ul class="dev__stack mono"><li>Flutter</li><li>speech_to_text</li><li>flutter_tts</li><li>OpenAI API</li></ul>
+                  <div class="dev__links mono">
+                    <a class="act" href="https://github.com/AyushKr2003/CognitoAI" target="_blank" rel="noopener">source ↗</a>
+                  </div>
+                </article>
+                <article class="dev__item" data-item>
+                  <p class="dev__meta mono">03 · AI search · web</p>
+                  <h3>SageSearch</h3>
+                  <p>
+                    Ask a question and a FastAPI backend searches the live web through Tavily, ranks the sources with sentence-transformers,
+                    and streams a cited Gemini answer over a WebSocket into a Flutter web client.
+                  </p>
+                  <ul class="dev__stack mono"><li>Flutter</li><li>FastAPI</li><li>Gemini</li><li>Tavily</li><li>WebSocket</li></ul>
+                  <div class="dev__links mono">
+                    <button class="act" data-gallery="sage" type="button">screens</button>
+                    <a class="act" href="https://github.com/AyushKr2003/sage_search" target="_blank" rel="noopener">source ↗</a>
+                  </div>
+                </article>
+                <article class="dev__item" data-item>
+                  <p class="dev__meta mono">04 · web3 · team project · web</p>
+                  <h3>NexVote</h3>
+                  <p>
+                    A voting app where every ballot is an Ethereum transaction. Voters connect a MetaMask wallet, browse elections and vote.
+                    The client calls castVote on a Solidity contract through web3dart and reads the results back from the chain. I built the Flutter app.
+                  </p>
+                  <ul class="dev__stack mono"><li>Flutter Web</li><li>web3dart</li><li>Solidity</li><li>Node.js</li></ul>
+                  <div class="dev__links mono">
+                    <button class="act" data-gallery="nexvote" type="button">screens</button>
+                    <a class="act" href="https://github.com/AyushKr2003/NexVote" target="_blank" rel="noopener">source ↗</a>
+                  </div>
+                </article>
+              </div>
+
+              <ol class="dev__steps mono">
+                <li><button type="button" data-go="0"><i data-fill></i><span>android</span>Musixir</button></li>
+                <li><button type="button" data-go="1"><i data-fill></i><span>android</span>CognitoAI</button></li>
+                <li><button type="button" data-go="2"><i data-fill></i><span>chrome</span>SageSearch</button></li>
+                <li><button type="button" data-go="3"><i data-fill></i><span>chrome</span>NexVote</button></li>
+              </ol>
+            </div>
+
+            <div class="dev__stage" data-dev-stage>
+              <div class="dev__spill" data-spill aria-hidden="true"></div>
+              <div class="device" data-device aria-hidden="true">
+                <div class="device__chrome" data-chrome>
+                  <div class="device__tabs">
+                    <span class="tab" data-tab><img src="/work/sage-icon.webp" alt="" />SageSearch</span>
+                    <span class="tab" data-tab><i class="tab__fav"></i>NexVote</span>
+                    <b>+</b>
+                  </div>
+                  <div class="device__url"><i>‹</i><i>›</i><i>↻</i><span data-url>localhost:54213/#/</span></div>
+                </div>
+                <div class="device__screen">
+                  <div class="layer" data-layer><div class="layer__viz" data-app="musixir"></div></div>
+                  <div class="layer" data-layer><div class="layer__viz" data-app="cognito"></div></div>
+                  <div class="layer" data-layer><div class="layer__viz" data-app="sage"></div></div>
+                  <div class="layer" data-layer><div class="layer__viz" data-app="nexvote"></div></div>
+                </div>
+                <i class="device__cam"></i>
+                <i class="device__glare"></i>
+              </div>
+              <p class="dev__cap mono" data-cap>android · 360×780 dp</p>
+            </div>
+          </div>
+        </div>
+
+        <a class="work__more mono" href="https://github.com/AyushKr2003?tab=repositories" target="_blank" rel="noopener">
+          <span>$ ls ~/repos | wc -l</span><strong data-repos>38</strong><span>more on GitHub ↗</span>
+        </a>
       </section>
 
       <!-- 4 · SIGNAL -------------------------------------------------- -->
@@ -425,7 +497,7 @@ rank  gemini+tavily    <b>12ms</b></pre>
         <p class="eyebrow mono">07 / exit 0</p>
         <h2 class="contact__title">Need someone across the stack?</h2>
         <button class="contact__mail" data-copy="ayushkrsngh2003@gmail.com" aria-label="Copy email address">
-          <span class="contact__mail-text" data-mail>ayushkrsngh2003<br />@gmail.com</span>
+          <span class="contact__mail-text" data-mail><span>ayushkrsngh2003</span><span>@gmail.com</span></span>
         </button>
         <p class="contact__toast mono" data-toast role="status" aria-live="polite"></p>
         <ul class="contact__links mono">

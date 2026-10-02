@@ -9,9 +9,9 @@ import gsap from "gsap";
 */
 
 const ICONS_OUTLINED =
-  "account_balance_wallet,add,add_circle,arrow_forward,auto_awesome,bookmark,chat_bubble,check_circle,chevron_left,close,content_copy,explore,favorite,history_edu,home,how_to_vote,keyboard_arrow_left,login,logout,menu,person,person_2,person_add,search,settings,source,tune";
+  "account_balance_wallet,add,add_circle,arrow_forward,auto_awesome,bookmark,chat_bubble,check_circle,chevron_left,close,content_copy,explore,favorite,history_edu,home,how_to_vote,keyboard_arrow_left,login,logout,menu,mic,person,person_2,person_add,search,settings,source,stop,tune";
 const ICONS_ROUNDED =
-  "apps,battery_full,bedtime,block,bluetooth,brightness_6,calendar_month,center_focus_strong,check,chevron_left,chevron_right,cloud,coffee,dark_mode,dashboard,desktop_windows,developer_board,do_not_disturb_on,download,expand_more,fit_screen,fullscreen,headphones,image,keyboard,list,logout,memory,mic,notifications,partly_cloudy_day,pause,person,photo_camera,play_arrow,power_settings_new,queue_music,refresh,screen_record,search,settings,skip_next,skip_previous,speed,storage,terminal,videocam,volume_up,wifi,workspaces";
+  "apps,battery_alert,battery_charging_full,battery_full,bedtime,block,bluetooth,bolt,brightness_6,cached,calendar_month,center_focus_strong,chat,check,chevron_left,chevron_right,clear_all,clear_day,cloud,coffee,dark_mode,dashboard,delete,desktop_windows,developer_board,device_thermostat,do_not_disturb_on,download,downloading,expand_more,fit_screen,folder,fullscreen,gamepad,hard_drive,headphones,history,image,imagesmode,keyboard,library_music,list,logout,lyrics,memory,memory_alt,mic,more_vert,notifications,notifications_off,partly_cloudy_day,pause,person,person_add,photo_camera,play_arrow,power_settings_new,queue_music,refresh,repeat,screen_record,search,select_window,sentiment_dissatisfied,settings,shuffle,skip_next,skip_previous,speed,storage,swap_vert,terminal,timer,unfold_more,upload,videocam,volume_up,web_asset,wifi,workspaces";
 
 // The fonts each project actually ships with, loaded only when the work section gets close.
 const FONT_URLS = [
@@ -98,7 +98,7 @@ export function pointerTo(tl, stage, cursor, target, at, { press = true, dur = 0
   }
   return at + dur + (press ? 0.3 : 0);
 }
-function centre(stage, el) {
+export function centre(stage, el) {
   // position in stage (unscaled) coordinates
   const s = stage.getBoundingClientRect();
   const r = el.getBoundingClientRect();
@@ -108,12 +108,13 @@ function centre(stage, el) {
 export const cursorHTML = `<svg class="app-cursor" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l14 8-6.2 1.6L10 19z" fill="#fff" stroke="#000" stroke-width="1.4" stroke-linejoin="round"/></svg>`;
 
 /*
-  Mount an app into a window's viz box:
+  Mount an app into a viz box:
   - builds a stage at the app's native size
   - scales it to fit (contain) and keeps it centred
-  - plays the app's timeline only while the box is visible
+  - plays the app's timeline only while the box is visible and, when the
+    caller manages it (several apps sharing one screen), only while active
 */
-export function mountApp(viz, app, ctx) {
+export function mountApp(viz, app, ctx, { manual = false } = {}) {
   const stage = document.createElement("div");
   stage.className = `stage app-${app.id}`;
   stage.style.width = `${app.w}px`;
@@ -128,13 +129,25 @@ export function mountApp(viz, app, ctx) {
   new ResizeObserver(fit).observe(viz);
   fit();
 
-  if (!tl) return;
+  const ctl = { stage, tl, setActive() {} };
+  if (!tl) return ctl;
   if (ctx.reduced) {
     tl.progress(app.still ?? 0.6).pause();
-    return;
+    return ctl;
   }
   tl.pause();
-  new IntersectionObserver(([e]) => (e.isIntersecting ? tl.play() : tl.pause()), { threshold: 0.25 }).observe(viz);
+  let visible = false;
+  let active = !manual;
+  const sync = () => (visible && active ? tl.play() : tl.pause());
+  new IntersectionObserver(([e]) => ((visible = e.isIntersecting), sync()), { threshold: 0.25 }).observe(viz);
+  // a re-activated app starts its story from the top instead of mid-scene
+  ctl.setActive = (on) => {
+    if (on === active) return;
+    active = on;
+    if (on) tl.restart();
+    sync();
+  };
+  return ctl;
 }
 
 export { gsap };

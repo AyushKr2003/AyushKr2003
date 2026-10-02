@@ -1,24 +1,38 @@
-import { gsap, $, $$, mi, pointerTo, cursorHTML } from "./core.js";
+import { gsap, $, $$, pointerTo, cursorHTML } from "./core.js";
 
 /*
-  NexVote, rebuilt from lib/: consts/conts.dart (blue[100] backdrop,
-  blueAccent panels), nav_screen.dart (CollapsibleSidebar, 70px),
-  welcome_page.dart, pages/vote_page.dart (search + green[50] election
-  cards + the candidates AlertDialog) and pages/home_page.dart (user info,
-  Vote History, Election History). All text is Open Sans, as in the app.
-  Votes go through castVote(electionId, candidateIndex) via web3dart to
-  a local Hardhat node. The small mono strip is an annotation, not app UI.
+  NexVote, redesigned. The data and the flow are the app's own (lib/model,
+  pages/vote_page.dart): an election with candidates and per-candidate
+  vote counts, read from the contract; picking a candidate and voting calls
+  castVote(electionIndex, candidateIndex) through MetaMask and web3dart on
+  a local Hardhat node, and the backend stores the transaction hash in the
+  voter's history.
+
+  The idea it's built around: a ballot is a block. The ledger on the right
+  is the chain itself, and the vote only counts on the left once its block
+  is mined: the tally ticks up at the same moment the block links on.
 */
-const ELECTIONS = [
-  ["Student Council 2024", "Choose the president of the CSE student council.", "2024-11-04", "09:00", "2024-11-08", "17:00"],
-  ["Tech Fest Theme", "Vote for the theme of this year's tech fest.", "2024-11-02", "10:00", "2024-11-12", "18:00"],
-  ["Library Hours", "Should the central library open 24 hours during exams?", "2024-10-28", "08:00", "2024-11-06", "20:00"],
-];
 const CANDIDATES = [
-  ["Aarav Mehta", "AM"],
-  ["Diya Raman", "DR"],
-  ["Kabir Joshi", "KJ"],
+  ["Aarav Mehta", "AM", "#e8e3d3", 41],
+  ["Diya Raman", "DR", "#d9e4dc", 37],
+  ["Kabir Joshi", "KJ", "#e3dde8", 22],
 ];
+const BLOCKS = [
+  [127, "0x9be1d4a0…77f2", "castVote(0, 0)", "18s"],
+  [126, "0x41c09e7b…a3d0", "castVote(0, 2)", "51s"],
+  [125, "0xd2f7c311…0b9e", "castVote(0, 1)", "1m"],
+  [124, "0x7a0e55c2…e41c", "addCandidate(0, …)", "3m"],
+];
+const total = CANDIDATES.reduce((n, c) => n + c[3], 0);
+const pct = (n, t = total) => Math.round((n / t) * 100);
+
+const block = ([n, h, fn, ago], cls = "") => `
+  <li class="nv-blk ${cls}">
+    <span class="nv-blk__n">#${n}</span>
+    <code>${h}</code>
+    <em>${fn}</em>
+    <time>${ago}</time>
+  </li>`;
 
 export default {
   id: "nexvote",
@@ -27,134 +41,155 @@ export default {
   still: 0.86,
   build(stage) {
     stage.innerHTML = `
-      <section class="nv-welcome" data-welcome>
-        <img src="/work/nexvote-bg.webp" alt="" />
-        <div class="nv-welcome__in">
-          ${mi("check_circle", "nv-logo")}
-          <h1>Welcome to NexVote!</h1>
-          <p>NexVote is a cutting-edge blockchain-based voting system ensuring secure and transparent elections. Explore your voting history, create proposals, and manage your votes with confidence.</p>
-          <button data-start>Get Started</button>
-          <small>Powered by Blockchain Technology</small>
-        </div>
-      </section>
+      <header class="nv-top">
+        <div class="nv-brand"><i class="nv-mark"><b></b><b></b><b></b></i>NexVote</div>
+        <nav><a class="on">Elections</a><a>My votes</a><a>Create</a></nav>
+        <div class="nv-net"><i></i>Hardhat · 31337</div>
+        <div class="nv-wallet"><span class="nv-jdent"></span>0x8f3C…2a9D</div>
+      </header>
 
-      <section class="nv-app" data-nvapp>
-        <nav class="nv-side">
-          <span class="nv-av">${mi("person", "fill")}</span>
-          <a data-nav0>${mi("home", "fill")}</a>
-          <a>${mi("history_edu")}</a>
-          <a data-nav2>${mi("how_to_vote", "fill")}</a>
-        </nav>
+      <main class="nv-main">
+        <section class="nv-el">
+          <p class="nv-crumb">Elections <span>/</span> CSE Department</p>
+          <div class="nv-head">
+            <h1>Student Council 2024</h1>
+            <span class="nv-open"><i></i>Voting open</span>
+          </div>
+          <p class="nv-sub">Choose the president of the CSE student council. Closes 8 Nov, 17:00 · election #0 on-chain</p>
 
-        <div class="nv-page nv-vote" data-vote>
-          <header class="nv-appbar">Votes</header>
-          <h3>Search Elections</h3>
-          <label class="nv-field">${mi("search")}<span>Search by Title</span></label>
-          <div class="nv-list">
-            ${ELECTIONS.map(([t, d, sd, st, ed, et], i) => `
-              <article class="nv-ecard" ${i === 0 ? "data-pick" : ""}>
-                <b>${t}</b><p>${d}</p>
-                <div class="nv-dates"><span>Start Date: ${sd}  </span><span>Time: ${st}</span></div>
-                <div class="nv-dates"><span>End Date: ${ed} </span><span>Time: ${et}</span></div>
+          <div class="nv-cands">
+            ${CANDIDATES.map(([name, ini, bg, votes], i) => `
+              <article class="nv-cand" data-cand="${i}">
+                <div class="nv-cand__top">
+                  <span class="nv-av" style="--bg:${bg}">${ini}</span>
+                  <span class="nv-radio"><i></i></span>
+                </div>
+                <h3>${name}</h3>
+                <small>Candidate ${String(i + 1).padStart(2, "0")}</small>
+                <div class="nv-tally"><b data-votes="${i}">${votes}</b><span>votes</span><em data-pct="${i}">${pct(votes)}%</em></div>
+                <div class="nv-bar"><i data-bar="${i}" style="--p:${votes / total}"></i></div>
               </article>`).join("")}
           </div>
-        </div>
 
-        <div class="nv-page nv-home" data-home>
-          <div class="nv-panel nv-user">
-            <div class="nv-white">
-              <div class="nv-kv"><b>UserName: </b>Ayush Kumar Singh</div>
-              <div class="nv-kv"><b>Email: </b>ayush@nexvote.dev</div>
-              <div class="nv-kv"><b>Wallet Address: </b><span class="nv-addr">0x8f3C…2a9D</span>${mi("content_copy", "nv-copy")}</div>
-              ${mi("person_2", "fill nv-bigav")}
-            </div>
+          <ol class="nv-steps" data-steps>
+            <li><i>1</i><b>Choose</b><span>one candidate</span></li>
+            <li><i>2</i><b>Sign</b><span>castVote in MetaMask</span></li>
+            <li><i>3</i><b>Mined</b><span>counted on-chain</span></li>
+          </ol>
+
+          <div class="nv-act">
+            <p data-hint><span>Your vote is a transaction.</span> It's signed in your wallet and counted once its block is mined.</p>
+            <button class="nv-btn" data-cast disabled><span data-btnlbl>Select a candidate</span><i class="nv-spin"></i></button>
           </div>
-          <div class="nv-row">
-            <div class="nv-panel"><div class="nv-white nv-hist">
-              <h4>Vote History</h4>
-              <div class="nv-item nv-new" data-newvote><b>Student Council 2024 ${mi("check_circle", "fill nv-dot")}</b><small>Date: 2024-11-05 14:32</small><small>Candidate: Diya Raman</small><small class="tx">Transaction Hash: 0x354yhgf3…c81e</small></div>
-              <div class="nv-item"><b>Tech Fest Theme ${mi("check_circle", "fill nv-dot")}</b><small>Date: 2024-11-03 11:08</small><small>Candidate: Retro Futurism</small><small class="tx">Transaction Hash: 0x9be1d4a0…77f2</small></div>
-            </div></div>
-            <div class="nv-panel"><div class="nv-white nv-hist">
-              <h4>Election History</h4>
-              <div class="nv-item"><b>Library Hours <i class="g"></i></b><small>Description: Should the central library open 24 hours during exams?</small><small>Start Date: 2024-10-28 08:00</small><small>End Date: 2024-11-06 20:00</small><small>Creator: Ayush Kumar Singh</small></div>
-              <div class="nv-item"><b>Hackathon Track <i class="r"></i></b><small>Description: Pick the open-innovation track.</small><small>Start Date: 2024-09-12 09:00</small><small>End Date: 2024-09-15 21:00</small></div>
-            </div></div>
+        </section>
+
+        <aside class="nv-ledger">
+          <div class="nv-ledger__h">
+            <b>Ledger</b>
+            <code>NexVote · 0x5FbD…0aa3</code>
           </div>
-        </div>
+          <ol class="nv-chain" data-chain>
+            ${block([128, "0x354b9af3…c81e", "castVote(0, 1)", "now"], "is-new")}
+            ${BLOCKS.map((b) => block(b)).join("")}
+          </ol>
+          <div class="nv-receipt" data-receipt>
+            <p>Receipt <span>stored in your vote history</span></p>
+            <dl>
+              <div><dt>tx</dt><dd>0x354b9af3…c81e</dd></div>
+              <div><dt>block</dt><dd>#128</dd></div>
+              <div><dt>candidate</dt><dd>Diya Raman</dd></div>
+            </dl>
+          </div>
+        </aside>
+      </main>
 
-        <div class="nv-scrim" data-scrim></div>
-        <div class="nv-dialog" data-dialog>
-          <h2>Student Council 2024</h2>
-          <div class="nv-rows"><span><b>Start Date:</b> 2024-11-04    </span><span><b>Time:</b> 09:00</span></div>
-          <div class="nv-rows"><span><b>End Date:</b> 2024-11-08</span><span><b>    Time:</b> 17:00</span></div>
-          <p><b>Description:</b> Choose the president of the CSE student council.</p>
-          <h5>Candidates:</h5>
-          ${CANDIDATES.map(([n, s], i) => `<div class="nv-cand"><span>${n} (${s})</span><button ${i === 1 ? "data-votebtn" : ""}>Vote</button></div>`).join("")}
-          <a class="nv-close">Close</a>
-        </div>
-
-        <div class="nv-tx mono-note" data-sign>
-          <span>castVote(0, 1)</span><span>→ web3dart · Hardhat node 127.0.0.1:8545</span><span data-txh>tx 0x354yhgf3…c81e · mined</span>
-        </div>
-        <div class="nv-toast" data-toast>Vote Successfully</div>
-      </section>
+      <div class="nv-sign" data-sign>
+        <div class="nv-sign__h"><span>MetaMask</span><em>Hardhat Localhost</em></div>
+        <p class="nv-sign__from">localhost:54217 wants you to confirm</p>
+        <h4>castVote</h4>
+        <dl>
+          <div><dt>Contract</dt><dd>0x5FbD…0aa3</dd></div>
+          <div><dt>electionIndex</dt><dd>0</dd></div>
+          <div><dt>candidateIndex</dt><dd>1</dd></div>
+          <div><dt>Network fee</dt><dd>0.00012 ETH</dd></div>
+        </dl>
+        <div class="nv-sign__b"><span>Reject</span><button data-confirm>Confirm</button></div>
+      </div>
       ${cursorHTML}`;
 
-    const welcome = $(stage, "[data-welcome]");
-    const app = $(stage, "[data-nvapp]");
-    const vote = $(stage, "[data-vote]");
-    const home = $(stage, "[data-home]");
-    const scrim = $(stage, "[data-scrim]");
-    const dialog = $(stage, "[data-dialog]");
+    const cards = $$(stage, "[data-cand]");
+    const cast = $(stage, "[data-cast]");
+    const lbl = $(stage, "[data-btnlbl]");
     const sign = $(stage, "[data-sign]");
-    const toast = $(stage, "[data-toast]");
+    const confirm = $(stage, "[data-confirm]");
+    const chain = $(stage, "[data-chain]");
+    const fresh = $(stage, ".nv-blk.is-new");
+    const receipt = $(stage, "[data-receipt]");
     const cursor = $(stage, ".app-cursor");
-    const nav0 = $(stage, "[data-nav0]");
-    const nav2 = $(stage, "[data-nav2]");
-    const newVote = $(stage, "[data-newvote]");
+    const votes = $(stage, '[data-votes="1"]');
+    const bars = $$(stage, "[data-bar]");
+    const pcts = $$(stage, "[data-pct]");
+    const steps = $$(stage, "[data-steps] li");
+    const step = (k) => steps.forEach((li, i) => li.classList.toggle("is-on", i < k));
 
-    const navOn = (a) => $$(stage, ".nv-side a").forEach((x) => x.classList.toggle("on", x === a));
+    const state = (txt, cls = "") => {
+      lbl.textContent = txt;
+      cast.className = `nv-btn ${cls}`;
+    };
+    const setTally = (n) => {
+      const counts = CANDIDATES.map((c, i) => (i === 1 ? n : c[3]));
+      const t = counts.reduce((a, b) => a + b, 0);
+      votes.textContent = n;
+      counts.forEach((c, i) => {
+        pcts[i].textContent = `${pct(c, t)}%`;
+        bars[i].style.setProperty("--p", c / t);
+      });
+    };
 
     const tl = gsap.timeline({ repeat: -1 });
-    tl.set(welcome, { autoAlpha: 1 }, 0).set(app, { autoAlpha: 0 }, 0);
-    tl.set([scrim, dialog, sign, toast], { autoAlpha: 0 }, 0);
-    tl.set(vote, { autoAlpha: 1, yPercent: 0 }, 0).set(home, { autoAlpha: 0, yPercent: 0 }, 0);
-    tl.set(newVote, { autoAlpha: 0, height: 0 }, 0);
-    tl.set(cursor, { autoAlpha: 1, x: 760, y: 600 }, 0);
-    tl.call(() => navOn(nav2), null, 0.001);
+    tl.call(() => {
+      cards.forEach((c) => c.classList.remove("is-on"));
+      state("Select a candidate");
+      cast.disabled = true;
+      setTally(37);
+      step(0);
+    }, null, 0.001);
+    tl.set([sign, receipt], { autoAlpha: 0 }, 0);
+    tl.set(fresh, { autoAlpha: 0, height: 0, marginBottom: 0 }, 0);
+    tl.set(cursor, { autoAlpha: 1, x: 640, y: 600 }, 0);
+    // the tallies arrive from the contract
+    tl.fromTo(bars, { scaleX: 0 }, { scaleX: 1, duration: 0.9, ease: "expo.out", stagger: 0.08 }, 0.15);
 
-    // welcome → app (pushReplacement)
-    let t = pointerTo(tl, stage, cursor, $(stage, "[data-start]"), 0.8);
-    tl.to(welcome, { autoAlpha: 0, duration: 0.35 }, t);
-    tl.to(app, { autoAlpha: 1, duration: 0.35 }, t);
+    // 1 · pick a candidate
+    let t = pointerTo(tl, stage, cursor, cards[1], 0.9);
+    tl.call(() => {
+      cards.forEach((c, i) => c.classList.toggle("is-on", i === 1));
+      state("Cast vote for Diya Raman", "is-ready");
+      step(1);
+      cast.disabled = false;
+    }, null, t - 0.3);
 
-    // open an election
-    t = pointerTo(tl, stage, cursor, $(stage, "[data-pick]"), t + 0.4);
-    tl.to(scrim, { autoAlpha: 1, duration: 0.25 }, t);
-    tl.fromTo(dialog, { autoAlpha: 0, scale: 0.92 }, { autoAlpha: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+    // 2 · cast → the wallet asks for a signature
+    t = pointerTo(tl, stage, cursor, cast, t + 0.5);
+    tl.call(() => state("Waiting for signature", "is-wait"), null, t - 0.2);
+    tl.fromTo(sign, { autoAlpha: 0, y: -16, scale: 0.97 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.45, ease: "expo.out" }, t);
 
-    // vote → castVote on the contract → toast
-    t = pointerTo(tl, stage, cursor, $(stage, "[data-votebtn]"), t + 0.6);
-    const vb = $(stage, "[data-votebtn]");
-    tl.call(() => vb.classList.add("is-busy"), null, t);
-    tl.fromTo(sign, { autoAlpha: 0, y: -10 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: "expo.out" }, t);
-    tl.call(() => vb.classList.remove("is-busy"), null, t + 1.4);
-    tl.to([dialog, scrim], { autoAlpha: 0, duration: 0.3 }, t + 1.5);
-    tl.fromTo(toast, { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: 0.3 }, t + 1.7);
-    tl.to(toast, { autoAlpha: 0, duration: 0.3 }, t + 3.4);
-    tl.to(sign, { autoAlpha: 0, duration: 0.3 }, t + 3.4);
-    t += 1.2;
-
-    // Home: the vote shows up in history with its transaction hash
-    t = pointerTo(tl, stage, cursor, nav0, t + 1.6);
-    tl.call(() => navOn(nav0), null, t);
-    tl.to(vote, { autoAlpha: 0, duration: 0.2 }, t);
-    tl.fromTo(home, { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power2.out" }, t + 0.1);
-    tl.to(newVote, { autoAlpha: 1, height: "auto", duration: 0.5, ease: "expo.out" }, t + 0.7);
-    tl.to(cursor, { autoAlpha: 0, duration: 0.3 }, t + 0.6);
-    tl.to({}, { duration: 2.8 });
-    tl.to(app, { autoAlpha: 0, duration: 0.4 });
+    // 3 · confirm → pending → the block is mined and linked onto the chain
+    t = pointerTo(tl, stage, cursor, confirm, t + 0.7);
+    tl.to(sign, { autoAlpha: 0, y: -10, duration: 0.25, ease: "power2.in" }, t);
+    tl.call(() => (state("Pending · mining block #128", "is-wait"), step(2)), null, t);
+    tl.to(cursor, { autoAlpha: 0, duration: 0.3 }, t + 0.2);
+    t += 1.3;
+    tl.to(fresh, { autoAlpha: 1, height: "auto", marginBottom: 8, duration: 0.6, ease: "expo.out" }, t);
+    tl.fromTo(chain, { "--link": 0 }, { "--link": 1, duration: 0.5, ease: "power2.out" }, t + 0.2);
+    // the count only moves once the block exists
+    const n = { v: 37 };
+    tl.to(n, { v: 38, duration: 0.5, ease: "none", onUpdate: () => setTally(Math.round(n.v)) }, t + 0.35);
+    tl.fromTo(votes, { y: 10, autoAlpha: 0.2 }, { y: 0, autoAlpha: 1, duration: 0.45, ease: "back.out(2)", immediateRender: false }, t + 0.5);
+    tl.call(() => (state("Vote recorded · block #128", "is-done"), step(3)), null, t + 0.4);
+    tl.fromTo(receipt, { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "expo.out" }, t + 0.9);
+    tl.to({}, { duration: 3.2 });
+    tl.to([receipt, fresh], { autoAlpha: 0, duration: 0.4 });
     return tl;
   },
 };

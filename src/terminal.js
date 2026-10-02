@@ -50,7 +50,7 @@ const COMMANDS = {
       row("work", "experience"),
       row("contact", "ways to reach me"),
       row("resume", "open resume.pdf"),
-      row("goto", "jump to a section: goto windows"),
+      row("goto", "jump to a section: goto work"),
       row("clear", "clear the screen"),
       `<span class="m">tab completes · ↑ ↓ history</span>`,
     ].join("\n"),
@@ -63,9 +63,9 @@ const COMMANDS = {
       row("niri-cs", "desktop shell for niri · qml · 171★"),
       row("nexvote", "blockchain voting · flutter, solidity"),
       row("musixir", "music streaming · flutter, fastapi"),
-      row("journeylog", "travel blog · laravel, sqlite"),
+      row("cognitoai", "voice assistant · flutter, openai"),
       row("omacale", "omarchy shell plugin · qml"),
-      `<span class="m">→ goto windows   to see them properly</span>`,
+      `<span class="m">→ goto work   to see them running</span>`,
     ].join("\n"),
   skills: () =>
     [
@@ -146,7 +146,7 @@ export function initTerminal(ctx) {
       if (document.getElementById(id)?.matches("main > section")) {
         print(`→ ${id}`);
         scrollToId(`#${id}`);
-      } else print(`goto: no such workspace: ${esc(id)}\n<span class="m">surface layers windows signal history shell contact</span>`);
+      } else print(`goto: no such workspace: ${esc(id)}\n<span class="m">surface layers work signal history shell contact</span>`);
       return;
     }
     const [head, ...rest] = lower.split(/\s+/);

@@ -5,7 +5,7 @@ import "./apps.css";
 
 import { initHero } from "./hero.js";
 import { initLayers } from "./layers.js";
-import { initWindows } from "./windows.js";
+import { initWork } from "./work.js";
 import { initSignal } from "./signal.js";
 import { initHistory } from "./history.js";
 import { initTerminal } from "./terminal.js";
@@ -30,6 +30,7 @@ if (lenis) {
 }
 
 export const ctx = { lenis, reduced, velocity: 0 };
+if (import.meta.env.DEV) window.lenis = lenis;
 
 /* Scroll velocity drives one global variable: every .kinetic heading
    condenses under fast scroll and relaxes back when you stop. */
@@ -190,7 +191,7 @@ async function start() {
   const stats = loadStats();
   const hero = initHero(ctx);
   initLayers(ctx);
-  initWindows(ctx);
+  initWork(ctx);
   const signal = initSignal(ctx);
   initHistory(ctx);
   initTerminal(ctx);

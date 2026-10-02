@@ -1,4 +1,5 @@
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 /*
   The ending mirrors the opening. The email starts fully condensed
@@ -29,8 +30,12 @@ export function initContact(ctx) {
     return lo;
   }
 
+  // the fit depends on Anybody's real glyph widths, so measure again once it has loaded
+  document.fonts?.ready.then(() => (ctx.reduced ? text.style.setProperty("--mw", fitWidth()) : ScrollTrigger.refresh()));
+
   if (ctx.reduced) {
     text.style.setProperty("--mw", fitWidth());
+    addEventListener("resize", () => text.style.setProperty("--mw", fitWidth()));
   } else {
     const st = { w: 50 };
     gsap.to(st, {

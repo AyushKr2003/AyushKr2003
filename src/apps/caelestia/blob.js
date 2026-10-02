@@ -305,6 +305,12 @@ export class BlobDeform {
 }
 
 export const hexToVec4 = (hex, a = 1) => {
+  // mid-tween, GSAP writes colour variables as rgba(), not hex
+  const rgb = hex.match(/rgba?\(([^)]+)\)/);
+  if (rgb) {
+    const [r, g, b, al = 1] = rgb[1].split(",").map(Number);
+    return [r / 255, g / 255, b / 255, al * a];
+  }
   const n = parseInt(hex.slice(1), 16);
   return [((n >> 16) & 255) / 255, ((n >> 8) & 255) / 255, (n & 255) / 255, a];
 };
