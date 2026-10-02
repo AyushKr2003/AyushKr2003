@@ -15,7 +15,7 @@ const ICONS_ROUNDED =
 
 // The fonts each project actually ships with, loaded only when the work section gets close.
 const FONT_URLS = [
-  "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Manrope:wght@700&family=Rubik:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap",
+  "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Manrope:wght@700&family=Rubik:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&family=Roboto:wght@400;500;700&family=Google+Sans+Flex:wght@400..700&display=swap",
   `https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0..1,0&icon_names=${ICONS_OUTLINED}&display=block`,
   `https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0..1,0&icon_names=${ICONS_ROUNDED}&display=block`,
 ];
