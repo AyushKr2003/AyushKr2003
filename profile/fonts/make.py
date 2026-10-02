@@ -4,7 +4,8 @@ GitHub shows README images through <img>, which can't load webfonts, so each SVG
 embeds these subsets as base64. They have to stay tiny (GitHub stops rendering
 SVGs past ~50 KB), hence one pinned weight and only the glyphs the SVGs use.
 
-display.woff2  Anybody, wght pinned at 860 (the site's .kinetic), wdth 50-150 kept live
+display.woff2  Anybody, wght pinned at 860 (the site's .kinetic), wdth 50-150 kept live: capitals
+email.woff2    the same instance, lowercase and digits only, for the address in contact.svg
 mono.woff2     Martian Mono, static at wght 400 / wdth 87.5
 metrics.json   Anybody advance widths per glyph across wdth, so build.mjs can
                lay out the width lens without a browser
@@ -13,6 +14,7 @@ metrics.json   Anybody advance widths per glyph across wdth, so build.mjs can
     .venv/bin/python profile/fonts/make.py
 """
 
+import copy
 import json
 import urllib.request
 from io import BytesIO
@@ -24,8 +26,9 @@ from fontTools.varLib import instancer
 
 HERE = Path(__file__).parent
 SRC = "https://github.com/google/fonts/raw/main/ofl/"
-DISPLAY_TEXT = "ABCDEFGHIJKLMNOPQRSTUVWXYZ .,/-"
-MONO_UNICODES = [*range(0x20, 0x7F), 0xB7, 0x2014, 0x2026, 0x2190, 0x2192, 0x2193, 0x2605, 0x276F]
+DISPLAY_TEXT = "ABCDEFGHIJKLMNOPQRSTUVWXYZ .,/-?"
+EMAIL_TEXT = "abcdefghijklmnopqrstuvwxyz0123456789@."
+MONO_UNICODES = [*range(0x20, 0x7F), 0xB7, 0x2014, 0x2026, 0x2190, 0x2192, 0x2197, 0x2193, 0x2605, 0x276F]
 WDTHS = list(range(50, 151, 5))
 
 
@@ -51,13 +54,14 @@ display = instancer.instantiateVariableFont(anybody, {"wght": 860})
 
 upm = display["head"].unitsPerEm
 cmap = display.getBestCmap()
-advances = {ch: [] for ch in DISPLAY_TEXT}
+advances = {ch: [] for ch in DISPLAY_TEXT + EMAIL_TEXT}
 for w in WDTHS:
     inst = instancer.instantiateVariableFont(display, {"wdth": w})
     hmtx = inst["hmtx"]
-    for ch in DISPLAY_TEXT:
+    for ch in DISPLAY_TEXT + EMAIL_TEXT:
         advances[ch].append(hmtx[cmap[ord(ch)]][0] / upm)
 
+write_subset(copy.deepcopy(display), "email.woff2", [ord(c) for c in EMAIL_TEXT])
 write_subset(display, "display.woff2", [ord(c) for c in DISPLAY_TEXT])
 
 martian = fetch("martianmono/MartianMono%5Bwdth,wght%5D.ttf")
