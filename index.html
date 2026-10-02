@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ayush Kumar Singh — Software Engineer</title>
+    <meta
+      name="description"
+      content="Ayush Kumar Singh — software engineer building across the stack: Flutter apps, FastAPI & Laravel backends, and Linux desktop shells."
+    />
+    <meta name="theme-color" content="#ece8df" />
+    <meta property="og:title" content="Ayush Kumar Singh — Software Engineer" />
+    <meta
+      property="og:description"
+      content="Interfaces, services, data and desktop shells. Scroll down through the stack."
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anybody:ital,wdth,wght@0,50..150,100..900;1,50..150,100..900&family=Martian+Mono:wdth,wght@75..112.5,100..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <a class="skip" href="#windows">Skip to work</a>
+
+    <!-- boot: a two-beat loader, no percentage counter -->
+    <div class="boot" aria-hidden="true">
+      <pre class="boot__log"></pre>
+    </div>
+
+    <!-- shell bar: the nav is a status bar, sections are workspaces -->
+    <header class="bar" data-bar>
+      <a class="bar__mark" href="#surface" aria-label="Back to top">aks<span>@</span>stack</a>
+      <nav class="bar__ws" aria-label="Sections">
+        <a href="#surface" data-ws="0"><span>1</span><em>surface</em></a>
+        <a href="#layers" data-ws="1"><span>2</span><em>layers</em></a>
+        <a href="#windows" data-ws="2"><span>3</span><em>windows</em></a>
+        <a href="#signal" data-ws="3"><span>4</span><em>signal</em></a>
+        <a href="#history" data-ws="4"><span>5</span><em>history</em></a>
+        <a href="#shell" data-ws="5"><span>6</span><em>shell</em></a>
+        <a href="#contact" data-ws="6"><span>7</span><em>contact</em></a>
+        <i class="bar__ws-pill" aria-hidden="true"></i>
+      </nav>
+      <div class="bar__status">
+        <span class="bar__depth" data-depth>depth 000</span>
+        <span class="bar__clock" data-clock>--:-- IST</span>
+      </div>
+    </header>
+
+    <main>
+      <!-- 1 · SURFACE ------------------------------------------------- -->
+      <section class="surface" id="surface" data-theme="paper">
+        <div class="surface__meta mono">
+          <span>Software Engineer</span>
+          <span>Backend · Mobile · Systems</span>
+          <span>Index / 2026</span>
+        </div>
+
+        <h1 class="name" data-lens aria-label="Ayush Kumar Singh">
+          <span class="name__line" data-line>Ayush</span>
+          <span class="name__line" data-line>Kumar&nbsp;Singh</span>
+        </h1>
+
+        <div class="surface__foot">
+          <p class="surface__lede">
+            I build the layers between people and machines. That means the screen you tap, the API that
+            answers it, the tables underneath, and the desktop shell that draws all of it.
+          </p>
+          <ul class="surface__facts mono">
+            <li><b>Now</b> Backend Developer, Fillip Technology</li>
+            <li><b>Base</b> Patna, India</li>
+            <li><b>Open to</b> SWE · Backend · Flutter roles</li>
+          </ul>
+          <div class="surface__cue mono" aria-hidden="true">
+            <span>scroll to descend</span>
+            <i></i>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2 · LAYERS -------------------------------------------------- -->
+      <section class="layers" id="layers" data-theme="paper">
+        <div class="layers__pin">
+          <div class="layers__copy">
+            <p class="eyebrow mono">02 / the stack</p>
+            <h2 class="layers__title kinetic">One tap,<br />four layers.</h2>
+            <p class="layers__intro">
+              A tap on a screen turns into a request, then a query, then a process on a machine. I've shipped
+              code at every one of those depths. Follow the packet down.
+            </p>
+            <ol class="layers__list">
+              <li data-layer="0">
+                <span class="mono">L1</span>
+                <div>
+                  <h3>Interface</h3>
+                  <div class="reveal"><p>Cross-platform Flutter apps built feature-first with MVVM. Shipped in production at Medoc.</p>
+                  <small class="mono">Flutter · Dart · MVVM · FDD · Unit tests</small></div>
+                </div>
+              </li>
+              <li data-layer="1">
+                <span class="mono">L2</span>
+                <div>
+                  <h3>Service</h3>
+                  <div class="reveal"><p>REST and realtime APIs with auth and business logic, built end to end. Daily work at Fillip.</p>
+                  <small class="mono">Laravel · FastAPI · REST · WebSockets · Auth</small></div>
+                </div>
+              </li>
+              <li data-layer="2">
+                <span class="mono">L3</span>
+                <div>
+                  <h3>Data</h3>
+                  <div class="reveal"><p>Relational schemas designed so the queries stay boring when traffic doesn't.</p>
+                  <small class="mono">PostgreSQL · MySQL · SQLite · SQL</small></div>
+                </div>
+              </li>
+              <li data-layer="3">
+                <span class="mono">L4</span>
+                <div>
+                  <h3>System</h3>
+                  <div class="reveal"><p>Linux all the way down. I write the desktop shells I use, in QML and shell script.</p>
+                  <small class="mono">Linux · QML · Shell · Git · C / C++</small></div>
+                </div>
+              </li>
+            </ol>
+          </div>
+
+          <div class="layers__stage" aria-hidden="true">
+            <div class="stack" data-stack>
+              <div class="plane plane--ui" data-plane="0">
+                <div class="plane__tag mono">L1 · interface</div>
+                <div class="ui-mock">
+                  <div class="ui-mock__bar"></div>
+                  <div class="ui-mock__search"><span>how do compositors work?</span><i></i></div>
+                  <div class="ui-mock__card"></div>
+                  <div class="ui-mock__card ui-mock__card--s"></div>
+                  <div class="ui-mock__btn"></div>
+                </div>
+              </div>
+              <div class="plane plane--api" data-plane="1">
+                <div class="plane__tag mono">L2 · service</div>
+                <pre class="mono">POST /v1/search        <b>201</b>
+GET  /v1/stream   <i>ws</i>   <b>101</b>
+auth  bearer · jwt     <b>ok</b>
+rank  gemini+tavily    <b>12ms</b></pre>
+              </div>
+              <div class="plane plane--data" data-plane="2">
+                <div class="plane__tag mono">L3 · data</div>
+                <div class="grid-mock">
+                  <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
+              </div>
+              <div class="plane plane--sys" data-plane="3">
+                <div class="plane__tag mono">L4 · system</div>
+                <div class="sys-mock">
+                  <div class="sys-mock__bar"><i></i><i></i><i class="on"></i><i></i><span></span></div>
+                  <div class="sys-mock__cols"><b></b><b class="f"></b><b></b></div>
+                </div>
+              </div>
+              <div class="packet" data-packet></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3 · WINDOWS (niri-style scrollable tiling) ------------------ -->
+      <section class="windows" id="windows" data-theme="ink">
+        <div class="windows__pin">
+          <header class="windows__head">
+            <p class="eyebrow mono">03 / selected work</p>
+            <h2 class="kinetic">Windows</h2>
+            <p class="windows__hint mono">
+              laid out like niri, scrollable tiling<span class="hide-sm"> · ← → or scroll</span>
+            </p>
+          </header>
+
+          <div class="strip" data-strip>
+            <!-- each column = one project window -->
+            <article class="col" style="--w: 0.46" data-col>
+              <div class="win">
+                <div class="win__viz viz-sage" aria-hidden="true">
+                  <div class="viz-sage__q mono"><span data-type="what is a wayland compositor?"></span><i></i></div>
+                  <div class="viz-sage__src">
+                    <b style="--d: 0"></b><b style="--d: 1"></b><b style="--d: 2"></b><b style="--d: 3"></b>
+                  </div>
+                  <div class="viz-sage__out"><i></i><i></i><i></i></div>
+                </div>
+                <div class="win__body">
+                  <p class="win__idx mono">01 · AI / search</p>
+                  <h3>SageSearch</h3>
+                  <p>
+                    A search engine that reads the web for you. It pulls live sources through Tavily, writes up
+                    an answer with Gemini, and streams it to a Flutter client over WebSockets.
+                  </p>
+                  <ul class="win__stack mono"><li>Flutter</li><li>FastAPI</li><li>Gemini</li><li>Tavily</li><li>WebSocket</li></ul>
+                  <a class="win__link mono" href="https://github.com/AyushKr2003/sage_search" target="_blank" rel="noopener">source ↗</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="col" style="--w: 0.62" data-col>
+              <div class="win">
+                <div class="win__viz viz-niri" aria-hidden="true">
+                  <div class="viz-niri__bar"><i></i><i class="on"></i><i></i><i></i><span class="mono">12:04</span></div>
+                  <div class="viz-niri__track">
+                    <b style="--cw: 34%"></b><b style="--cw: 50%" class="f"></b><b style="--cw: 34%"></b><b style="--cw: 66%"></b><b style="--cw: 34%"></b>
+                  </div>
+                </div>
+                <div class="win__body">
+                  <p class="win__idx mono">02 · desktop shell · <span data-stars="niri-caelestia-shell">171</span>★</p>
+                  <h3>niri-caelestia-shell</h3>
+                  <p>
+                    A port of the Caelestia desktop shell to the niri compositor, covering bar, launcher,
+                    dashboard and notifications. It's my most-starred project, and people actually run it every day.
+                  </p>
+                  <ul class="win__stack mono"><li>QML</li><li>Quickshell</li><li>niri IPC</li><li>Wayland</li></ul>
+                  <a class="win__link mono" href="https://github.com/AyushKr2003/niri-caelestia-shell" target="_blank" rel="noopener">source ↗</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="col" style="--w: 0.42" data-col>
+              <div class="win">
+                <div class="win__viz viz-chain" aria-hidden="true">
+                  <div class="viz-chain__row">
+                    <b class="mono">#0x3f<em>genesis</em></b><b class="mono">#0xa1<em>+1 vote</em></b><b class="mono">#0x7c<em>+1 vote</em></b><b class="mono">#0xe9<em>+1 vote</em></b><b class="mono">#0x2d<em>+1 vote</em></b>
+                  </div>
+                </div>
+                <div class="win__body">
+                  <p class="win__idx mono">03 · web3 · team</p>
+                  <h3>NexVote</h3>
+                  <p>
+                    A voting platform where the ballot box is an Ethereum smart contract. I built the Flutter
+                    frontend, auth, and election management, wired to the chain for live, tamper-evident counts.
+                  </p>
+                  <ul class="win__stack mono"><li>Flutter</li><li>Node.js</li><li>Solidity</li><li>Ethereum</li></ul>
+                  <a class="win__link mono" href="https://github.com/AyushKr2003/NexVote" target="_blank" rel="noopener">source ↗</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="col" style="--w: 0.5" data-col>
+              <div class="win">
+                <div class="win__viz viz-wave" aria-hidden="true">
+                  <div class="viz-wave__bars"></div>
+                  <div class="viz-wave__meta mono"><span>now playing</span><span>02:41 / 04:10</span></div>
+                </div>
+                <div class="win__body">
+                  <p class="win__idx mono">04 · media</p>
+                  <h3>Musixir</h3>
+                  <p>
+                    A music streaming app with background playback and library management, backed by its own
+                    FastAPI service rather than a third-party backend.
+                  </p>
+                  <ul class="win__stack mono"><li>Flutter</li><li>FastAPI</li><li>Python</li></ul>
+                  <a class="win__link mono" href="https://github.com/AyushKr2003/Musixir" target="_blank" rel="noopener">source ↗</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="col" style="--w: 0.42" data-col>
+              <div class="win">
+                <div class="win__viz viz-route" aria-hidden="true">
+                  <svg viewBox="0 0 300 160" preserveAspectRatio="none">
+                    <path class="viz-route__path" d="M14 132 C 60 40, 92 150, 140 84 S 220 18, 286 40" />
+                    <circle cx="14" cy="132" r="4" /><circle cx="140" cy="84" r="4" /><circle cx="286" cy="40" r="4" />
+                  </svg>
+                </div>
+                <div class="win__body">
+                  <p class="win__idx mono">05 · full-stack</p>
+                  <h3>JourneyLog</h3>
+                  <p>
+                    A travel blog platform with separate admin and user roles. It has category filtering, the full
+                    write-edit-publish flow, and media uploads through Laravel storage.
+                  </p>
+                  <ul class="win__stack mono"><li>Laravel</li><li>PHP</li><li>SQLite</li></ul>
+                  <a class="win__link mono" href="https://github.com/AyushKr2003/JourneyLog" target="_blank" rel="noopener">source ↗</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="col" style="--w: 0.5" data-col>
+              <div class="win">
+                <div class="win__viz viz-omacale" aria-hidden="true">
+                  <div class="viz-omacale__ws"><b></b><b></b><b class="f"></b><b></b><b></b><b></b></div>
+                  <div class="viz-omacale__bar"><i></i><i></i><i></i></div>
+                </div>
+                <div class="win__body">
+                  <p class="win__idx mono">06 · desktop shell · <span data-stars="omacale">46</span>★</p>
+                  <h3>omacale</h3>
+                  <p>
+                    The Caelestia look, rebuilt as a single plugin for the Omarchy shell bar. Its sibling,
+                    omarchy-overview, adds a workspace overview with live window previews.
+                  </p>
+                  <ul class="win__stack mono"><li>QML</li><li>Omarchy</li><li>Hyprland</li></ul>
+                  <a class="win__link mono" href="https://github.com/AyushKr2003/omacale" target="_blank" rel="noopener">source ↗</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="col col--more" style="--w: 0.34" data-col>
+              <a class="win win--more" href="https://github.com/AyushKr2003?tab=repositories" target="_blank" rel="noopener">
+                <span class="mono">$ ls ~/repos | wc -l</span>
+                <strong data-repos>38</strong>
+                <span class="mono">more on GitHub ↗</span>
+              </a>
+            </article>
+          </div>
+
+          <!-- niri-style overview minimap -->
+          <div class="minimap" aria-hidden="true">
+            <div class="minimap__track" data-minimap></div>
+            <div class="minimap__view" data-minimap-view></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4 · SIGNAL -------------------------------------------------- -->
+      <section class="signal" id="signal" data-theme="ink">
+        <div class="signal__pin">
+          <canvas class="signal__canvas" data-signal aria-hidden="true"></canvas>
+          <div class="signal__copy">
+            <p class="eyebrow mono">04 / open source</p>
+            <p class="signal__lede">
+              Every point here is a person who starred <a href="https://github.com/AyushKr2003/niri-caelestia-shell" target="_blank" rel="noopener">niri-caelestia-shell</a>.
+              Move through them.
+            </p>
+          </div>
+          <dl class="signal__stats mono">
+            <div><dt>stars</dt><dd data-stars="niri-caelestia-shell">171</dd></div>
+            <div><dt>forks</dt><dd data-forks="niri-caelestia-shell">17</dd></div>
+            <div><dt>public repos</dt><dd data-repos>38</dd></div>
+            <div><dt>stars, all repos</dt><dd data-total-stars>230+</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- 5 · HISTORY (git graph) ------------------------------------- -->
+      <section class="history" id="history" data-theme="paper">
+        <header class="history__head">
+          <p class="eyebrow mono">05 / git log --graph</p>
+          <h2 class="kinetic">History</h2>
+        </header>
+        <div class="graph" data-graph>
+          <svg class="graph__svg" data-graph-svg aria-hidden="true"></svg>
+          <ol class="graph__commits">
+            <li data-lane="0" data-head>
+              <code class="mono">HEAD → job/fillip</code>
+              <time class="mono">Aug 2026 — now</time>
+              <h3>Backend Developer · Fillip Technology</h3>
+              <p>I build and run production REST APIs in Laravel, PHP and MySQL. That covers schemas, auth and business logic end to end, plus debugging whatever breaks.</p>
+            </li>
+            <li data-lane="1" data-branch-start>
+              <code class="mono">checkout -b job/fillip</code>
+              <time class="mono">Aug 2026</time>
+              <h3>Shipped to production</h3>
+              <p>Started full-time backend work the same summer I graduated.</p>
+            </li>
+            <li data-lane="0">
+              <code class="mono">tag v1.0-graduate</code>
+              <time class="mono">2026</time>
+              <h3>B.E. Computer Science · Chandigarh University</h3>
+              <p>Finished 2022–2026 with a CGPA of 7.9.</p>
+            </li>
+            <li data-lane="0">
+              <code class="mono">feat: niri-caelestia-shell</code>
+              <time class="mono">2025</time>
+              <h3>Desktop shell for niri, 171★</h3>
+              <p>Took a shell I loved to a compositor it didn't support. It became my most-starred project and started the omacale and omarchy-overview line.</p>
+            </li>
+            <li data-lane="0" data-merge>
+              <code class="mono">merge internship/medoc</code>
+              <time class="mono">Jan 2025</time>
+              <h3>Medoc internship merged</h3>
+              <p>Six months of production Flutter in a remote, distributed team.</p>
+            </li>
+            <li data-lane="1">
+              <code class="mono">feat: mvvm + fdd modules</code>
+              <time class="mono">Jul 2024 — Jan 2025</time>
+              <h3>Flutter Developer Intern · Medoc</h3>
+              <p>Cross-platform apps built feature-first with MVVM, wired to REST APIs and covered by unit tests.</p>
+            </li>
+            <li data-lane="1" data-branch-start>
+              <code class="mono">checkout -b internship/medoc</code>
+              <time class="mono">Jul 2024</time>
+              <h3>First team codebase</h3>
+              <p>Same quarter: Linux and shell-scripting labs at KodeKloud. Cybersecurity simulation with Tata Group (Forage) in Jan 2025.</p>
+            </li>
+            <li data-lane="0">
+              <code class="mono">init: simple_ai</code>
+              <time class="mono">Nov 2022</time>
+              <h3>First repository</h3>
+              <p>Its README just says “My first project”. 37 repositories later, still true in spirit.</p>
+            </li>
+            <li data-lane="0" data-root>
+              <code class="mono">root: patna</code>
+              <time class="mono">2020 — 2022</time>
+              <h3>St. Joseph's High School, Patna</h3>
+              <p>10th: 92% · 12th: 82%.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 6 · SHELL --------------------------------------------------- -->
+      <section class="shell" id="shell" data-theme="ink">
+        <header class="shell__head">
+          <p class="eyebrow mono">06 / interactive</p>
+          <h2 class="kinetic">Shell</h2>
+          <p class="shell__hint">This is where I actually live. Type <kbd>help</kbd>.</p>
+        </header>
+        <div class="term" data-term>
+          <div class="term__top mono">
+            <span>fish — ~/ayush</span>
+            <span class="term__dots"><i></i><i></i><i></i></span>
+          </div>
+          <div class="term__body mono" data-term-body tabindex="-1">
+            <div class="term__out" data-term-out></div>
+            <label class="term__line">
+              <span class="term__ps"><b>ayush</b>@stack <i>~</i> ❯</span>
+              <input
+                class="term__input"
+                data-term-input
+                type="text"
+                autocomplete="off"
+                autocapitalize="off"
+                spellcheck="false"
+                aria-label="Terminal command"
+              />
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7 · CONTACT ------------------------------------------------- -->
+      <section class="contact" id="contact" data-theme="signal">
+        <p class="eyebrow mono">07 / exit 0</p>
+        <h2 class="contact__title">Need someone across the stack?</h2>
+        <button class="contact__mail" data-copy="ayushkrsngh2003@gmail.com" aria-label="Copy email address">
+          <span class="contact__mail-text" data-mail>ayushkrsngh2003<br />@gmail.com</span>
+        </button>
+        <p class="contact__toast mono" data-toast role="status" aria-live="polite"></p>
+        <ul class="contact__links mono">
+          <li><a href="mailto:ayushkrsngh2003@gmail.com">email ↗</a></li>
+          <li><a href="https://github.com/AyushKr2003" target="_blank" rel="noopener">github ↗</a></li>
+          <li><a href="https://www.linkedin.com/in/ayush-kumar-singh-8b6b00249" target="_blank" rel="noopener">linkedin ↗</a></li>
+          <li><a href="https://codolio.com/profile/shadowMonarch" target="_blank" rel="noopener">codolio ↗</a></li>
+          <li><a href="/Ayush_Kumar_Singh_Resume.pdf" target="_blank" rel="noopener">resume.pdf ↗</a></li>
+        </ul>
+        <footer class="foot mono">
+          <span>© 2026 Ayush Kumar Singh</span>
+          <span>Set in Anybody &amp; Martian Mono · built by hand, no template</span>
+          <span data-clock>--:-- IST</span>
+        </footer>
+      </section>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
